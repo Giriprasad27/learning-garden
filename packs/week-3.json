@@ -1,0 +1,203 @@
+{
+  "week": "Week 3",
+  "subjects": {
+    "english": {
+      "topic": "Interesting words and word parts",
+      "goal": "I can find interesting words in a story. I know that prefixes and suffixes change what a word means.",
+      "learn": [
+        { "title": "Interesting words", "text": "Writers choose interesting words to make a story exciting. Instead of saying big, a writer might say huge, gigantic or enormous!", "big": "big → huge · gigantic · enormous", "pics": [{ "p": "🦕" }] },
+        { "title": "Words that paint a picture", "text": "Interesting words help us picture the story in our heads. A tiny bird. A sparkling river. Can you see them?", "big": "small → tiny · little · teeny", "pics": [{ "p": "🐦", "t": "a tiny bird" }, { "p": "🏞️", "t": "a sparkling river" }] },
+        { "title": "Be a word detective", "text": "When you find a new word, look for clues in the story and the pictures to work out what it means. Then try using it in your own sentence!", "pics": [{ "p": "🔍", "t": "find it" }, { "p": "🤔", "t": "think" }, { "p": "✏️", "t": "use it" }] },
+        { "title": "Prefixes go at the start", "text": "A prefix is a small part we add to the START of a word. It changes the meaning. un- means not. re- means again.", "big": "un + happy = unhappy (not happy)", "extra": "re + play = replay (play again)" },
+        { "title": "Suffixes go at the end", "text": "A suffix is added to the END of a word. -ful means full of. -ly tells us how something is done.", "big": "help + ful = helpful (full of help)", "extra": "slow + ly = slowly" }
+      ],
+      "practice": [
+        { "id": "e3-story", "type": "story", "title": "Find interesting words", "storyTitle": "Rex and the Sparkling River",
+          "text": "Early one sunny morning, a little dinosaur called Rex woke up in the lush green forest. He stretched his tiny arms and yawned.\nThen Rex heard a gigantic splash! He tiptoed past the enormous trees and found a sparkling river. A huge dinosaur with a long neck was drinking the cool water.\nSuddenly, a flock of tiny birds zoomed into the sky. \"How mysterious!\" whispered Rex. He felt curious and brave, so he followed the river to see what he could discover.",
+          "targets": ["lush", "tiny", "gigantic", "splash", "tiptoed", "enormous", "sparkling", "huge", "zoomed", "mysterious", "whispered", "curious", "brave", "sunny", "stretched", "yawned", "flock", "discover"],
+          "need": 4, "prompt": "Tap 4 interesting words in the story.", "missHint": "That's a useful word, but try a more exciting one!" },
+        { "id": "e3-build", "type": "build", "title": "Build words", "prompt": "Make the word with the pieces.",
+          "items": [
+            { "a": "unhappy", "parts": ["un", "happy"], "extra": ["ful", "re"], "meaning": "not happy" },
+            { "a": "helpful", "parts": ["help", "ful"], "extra": ["un", "ly"], "meaning": "full of help" },
+            { "a": "replay", "parts": ["re", "play"], "extra": ["ful", "un"], "meaning": "play again" },
+            { "a": "slowly", "parts": ["slow", "ly"], "extra": ["re", "ful"], "meaning": "in a slow way" },
+            { "a": "unkind", "parts": ["un", "kind"], "extra": ["ly", "re"], "meaning": "not kind" }
+          ] },
+        { "id": "e3-sort", "type": "sort", "title": "Prefix or suffix?", "prompt": "Is the extra part at the start or the end?",
+          "groups": ["👈 Prefix (start)", "👉 Suffix (end)"],
+          "items": [
+            { "t": "unhappy", "g": 0 }, { "t": "replay", "g": 0 }, { "t": "untie", "g": 0 }, { "t": "unlock", "g": 0 },
+            { "t": "helpful", "g": 1 }, { "t": "slowly", "g": 1 }, { "t": "cheerful", "g": 1 }, { "t": "careless", "g": 1 }
+          ] }
+      ],
+      "more": [
+        { "id": "e3-match", "type": "match", "title": "Word meanings", "prompt": "Match each word to what it means.",
+          "pairs": [["unhappy", "not happy"], ["helpful", "full of help"], ["carefully", "in a careful way"], ["replay", "play again"], ["unkind", "not kind"]] },
+        { "id": "e3-gaps", "type": "gaps", "title": "Dinosaur word bank", "bank": ["forest", "roar", "sparkling", "gigantic", "mysterious"],
+          "items": [
+            { "t": "Rex walked through the green ___.", "a": "forest" },
+            { "t": "Rex heard a loud ___.", "a": "roar" },
+            { "t": "The blue river was ___ in the sun.", "a": "sparkling" },
+            { "t": "He saw a ___ dinosaur with a very long neck.", "a": "gigantic" },
+            { "t": "The birds zoomed away. \"How ___!\" whispered Rex.", "a": "mysterious" }
+          ] },
+        { "id": "e3-card", "type": "card", "kind": "write", "title": "My own sentence", "text": "Choose your favourite interesting word. Say what it means, then write your own sentence with it.", "example": "Gigantic means very, very big. The gigantic camel walked across the desert." }
+      ]
+    },
+    "maths": {
+      "topic": "Tens and ones",
+      "goal": "I can make and break 2-digit numbers using tens and ones, and write number names up to 100.",
+      "learn": [
+        { "title": "A ten is a stick of 10", "text": "When we have 10 little ones, we can bundle them into 1 ten. We draw a ten as a long stick.", "blocks": 10 },
+        { "title": "Reading a 2-digit number", "text": "34 has 3 tens and 4 ones. The first digit tells us the tens. The second digit tells us the ones.", "blocks": 34 },
+        { "title": "Where a digit sits matters", "text": "The same digit can be worth different amounts. In 47, the 4 is worth 40. In 74, the 4 is worth just 4!", "big": "47 = 40 + 7", "extra": "74 = 70 + 4" },
+        { "title": "Swap 10 ones for a ten", "text": "If we have 10 or more ones, we can swap 10 of them for 1 ten. The number stays the same.", "big": "2 tens + 13 ones = 3 tens + 3 ones = 33" },
+        { "title": "Number names", "text": "Say the tens word, then the ones word, with a little dash between. Careful: it's forty, not fourty!", "big": "57 → fifty-seven", "extra": "twenty · thirty · forty · fifty · sixty · seventy · eighty · ninety" }
+      ],
+      "practice": [
+        { "id": "m3-read", "type": "blocks", "mode": "read", "title": "How many blocks?", "prompt": "Count the tens, then the ones.", "items": [34, 52, 76, 81, 49] },
+        { "id": "m3-split", "type": "blocks", "mode": "split", "title": "Break the number", "prompt": "How many tens and ones?", "items": [26, 43, 58, 71, 95] },
+        { "id": "m3-names", "type": "match", "title": "Number names", "prompt": "Match each number to its name.",
+          "pairs": [["32", "thirty-two"], ["23", "twenty-three"], ["28", "twenty-eight"], ["82", "eighty-two"], ["38", "thirty-eight"], ["24", "twenty-four"]] }
+      ],
+      "more": [
+        { "id": "m3-build", "type": "blocks", "mode": "build", "title": "Build the number", "prompt": "Add sticks and squares to make the number.", "items": [34, 62, 47] },
+        { "id": "m3-digit", "type": "mcq", "title": "What is the digit worth?",
+          "items": [
+            { "q": "What is the 4 worth in 47?", "opts": ["4 ones", "4 tens (40)"], "a": 1 },
+            { "q": "What is the 6 worth in 36?", "opts": ["6 ones", "6 tens (60)"], "a": 0 },
+            { "q": "3 tens and 6 ones make…", "opts": ["63", "36"], "a": 1 },
+            { "q": "In 82, what does the 8 mean?", "opts": ["8 tens", "8 ones"], "a": 0 }
+          ] },
+        { "id": "m3-write", "type": "gaps", "title": "Write the number name",
+          "items": [
+            { "t": "57 in words is ___.", "a": "fifty-seven" },
+            { "t": "Seventy-two as a number is ___.", "a": "72" },
+            { "t": "45 in words is ___.", "a": "forty-five" },
+            { "t": "100 in words is ___.", "a": "one hundred" }
+          ] },
+        { "id": "m3-mystery", "type": "clues", "title": "Mystery numbers",
+          "items": [
+            { "clues": ["I am a 2-digit number.", "I have 6 tens.", "My ones digit is 3 more than 4."], "a": "67" },
+            { "clues": ["I am a 2-digit number.", "My tens digit is 2 more than 5.", "My ones digit is half of 8."], "a": "74" },
+            { "clues": ["I am the number of emirates in the UAE.", "I am less than 10.", "I come just after 6."], "a": "7" }
+          ] }
+      ]
+    },
+    "science": {
+      "topic": "Rocks and habitats",
+      "goal": "I know where rocks come from and what we use them for. I can say what a habitat is and match animals to their habitats.",
+      "learn": [
+        { "title": "Where do rocks come from?", "text": "We dig rocks out of the ground in quarries and mines, and find them in river beds. Diggers and trucks move them, because rocks are very heavy.", "pics": [{ "p": "⛏️", "t": "dig" }, { "p": "🪨", "t": "rock" }, { "p": "🚜", "t": "digger" }] },
+        { "title": "What we use rocks for", "text": "Rocks are strong, so we use them to build things. In the UAE, rocks and sand help build tall towers and long roads.", "pics": [{ "p": "🏢", "t": "buildings" }, { "p": "🛣️", "t": "roads" }, { "p": "🗿", "t": "statues" }, { "p": "🧱", "t": "walls" }] },
+        { "title": "Looking after nature", "text": "Digging a quarry can remove trees and plants, and take away animals' homes. That's why we should only take the rocks we really need.", "pics": [{ "p": "🌳", "t": "trees" }, { "p": "🐦", "t": "animals" }, { "p": "🌱", "t": "plants" }] },
+        { "title": "What is a habitat?", "text": "A habitat is the place where an animal lives. It gives the animal the food, water and shelter it needs.", "pics": [{ "p": "🏜️", "t": "desert" }, { "p": "🌳", "t": "forest" }, { "p": "❄️", "t": "polar" }, { "p": "🌊", "t": "ocean" }] },
+        { "title": "The Arctic and the desert", "text": "Animals live in habitats that suit them. The UAE has a desert habitat, where camels and the Arabian oryx live.",
+          "compare": [
+            { "title": "❄️ The Arctic", "pics": [{ "p": "🐻‍❄️" }], "lines": ["very cold", "snowy and icy", "few trees"] },
+            { "title": "🏜️ The desert", "pics": [{ "p": "🐫" }], "lines": ["very hot", "sandy and dry", "few plants"] }
+          ] }
+      ],
+      "practice": [
+        { "id": "s3-habitat", "type": "match", "title": "Who lives where?", "prompt": "Match each animal to its habitat.",
+          "pairs": [[{ "p": "🐫", "t": "camel" }, { "p": "🏜️", "t": "desert" }], [{ "p": "🐻‍❄️", "t": "polar bear" }, { "p": "❄️", "t": "polar" }], [{ "p": "🦈", "t": "shark" }, { "p": "🌊", "t": "ocean" }], [{ "p": "🐒", "t": "monkey" }, { "p": "🌳", "t": "forest" }]] },
+        { "id": "s3-sort", "type": "sort", "title": "Arctic or desert?", "prompt": "Which habitat does each word describe?",
+          "groups": ["❄️ The Arctic", "🏜️ The desert"],
+          "items": [
+            { "t": "freezing", "g": 0 }, { "t": "snowy", "g": 0 }, { "t": "icy", "g": 0 }, { "p": "🐻‍❄️", "t": "polar bear", "g": 0 },
+            { "t": "hot", "g": 1 }, { "t": "sandy", "g": 1 }, { "t": "dry", "g": 1 }, { "p": "🐫", "t": "camel", "g": 1 }
+          ] },
+        { "id": "s3-clues", "type": "clues", "title": "Mystery habitats", "q": "Which habitat am I?",
+          "items": [
+            { "clues": ["It is very hot during the day.", "It gets very little rain.", "There is lots of sand.", "A camel can live here."], "a": "Desert", "opts": [{ "p": "🌳", "t": "Forest" }, { "p": "❄️", "t": "Polar" }, { "p": "🏜️", "t": "Desert" }, { "p": "🌊", "t": "Ocean" }] },
+            { "clues": ["There are lots of trees.", "It can be cool and shady.", "You may hear birds.", "There are leaves and branches everywhere."], "a": "Forest", "opts": [{ "p": "🌳", "t": "Forest" }, { "p": "🌊", "t": "Ocean" }, { "p": "🏜️", "t": "Desert" }, { "p": "❄️", "t": "Polar" }] },
+            { "clues": ["It is very cold.", "There is lots of ice and snow.", "Animals need to keep warm.", "Polar bears live here."], "a": "Polar", "opts": [{ "p": "🌊", "t": "Ocean" }, { "p": "🏜️", "t": "Desert" }, { "p": "🌳", "t": "Forest" }, { "p": "❄️", "t": "Polar" }] },
+            { "clues": ["It is very, very wet.", "The water is salty.", "Fish, whales and sharks live here."], "a": "Ocean", "opts": [{ "p": "❄️", "t": "Polar" }, { "p": "🌊", "t": "Ocean" }, { "p": "🌳", "t": "Forest" }, { "p": "🏜️", "t": "Desert" }] }
+          ] }
+      ],
+      "more": [
+        { "id": "s3-rocks", "type": "mcq", "title": "Rock quiz",
+          "items": [
+            { "q": "Where can rocks be dug up from?", "opts": [{ "p": "🏫", "t": "A classroom" }, { "p": "⛏️", "t": "A quarry" }, { "p": "🎠", "t": "A playground" }], "a": 1 },
+            { "q": "Which machine helps dig rocks?", "opts": [{ "p": "🚲", "t": "Bicycle" }, { "p": "🛴", "t": "Scooter" }, { "p": "🚜", "t": "Digger" }], "a": 2 },
+            { "q": "What can happen when a quarry is dug?", "opts": ["Trees and plants may be removed", "More flowers always grow", "It turns into a forest"], "a": 0 },
+            { "q": "Why can't we carry a very big rock with our hands?", "opts": ["It is too soft", "It is too heavy", "It is too small"], "a": 1 }
+          ] },
+        { "id": "s3-gaps", "type": "gaps", "title": "Habitat words", "bank": ["lives", "desert", "cold", "ocean"],
+          "items": [
+            { "t": "A habitat is the place where an animal ___.", "a": "lives" },
+            { "t": "A camel lives in the ___.", "a": "desert" },
+            { "t": "A polar habitat is very ___.", "a": "cold" },
+            { "t": "Fish and whales live in the ___.", "a": "ocean" }
+          ] },
+        { "id": "s3-scratch", "type": "card", "kind": "try", "title": "Rock scratch test", "text": "Find 3 different stones. With a grown-up, try to scratch each one with a paperclip. Which stone is hard? Which is soft?", "steps": ["Look at each stone. Is it big or small?", "Scratch it gently with the paperclip.", "If it scratches easily, it is soft. If not, it is hard!"] },
+        { "id": "s3-why", "type": "card", "kind": "talk", "title": "Why does it live there?", "text": "Choose an animal. Tell a grown-up: \"It lives in the ___ because ___.\" Try to give two clues about its habitat.", "example": "A camel lives in the desert because it can go a long time without water, and its wide feet don't sink in the sand." }
+      ]
+    },
+    "gp": {
+      "topic": "The seven continents",
+      "goal": "I can name the seven continents and find them on a world map.",
+      "learn": [
+        { "title": "What is a continent?", "text": "The biggest pieces of land on Earth are called continents. There are 7 of them!", "map": { "labels": true } },
+        { "title": "Island, country, continent", "text": "An island is small. A country is bigger. A continent is the biggest of all, and has many countries in it.", "pics": [{ "p": "🏝️", "t": "island" }, { "p": "🗺️", "t": "country" }, { "p": "🌏", "t": "continent" }] },
+        { "title": "Where do we live?", "text": "We live in the UAE. The UAE is a country in Asia. Asia is the biggest continent in the world!", "map": { "highlight": ["asia"], "labels": true, "uae": true } },
+        { "title": "Biggest to smallest", "text": "Asia is the biggest continent. Australia is the smallest. Antarctica is covered in ice, and penguins live there.", "big": "Asia · Africa · North America · South America · Antarctica · Europe · Australia" }
+      ],
+      "practice": [
+        { "id": "g3-find", "type": "find", "title": "Find the continents", "map": "world",
+          "targets": [{ "id": "asia", "name": "Asia" }, { "id": "africa", "name": "Africa" }, { "id": "namerica", "name": "North America" }, { "id": "samerica", "name": "South America" }, { "id": "antarctica", "name": "Antarctica" }, { "id": "europe", "name": "Europe" }, { "id": "australia", "name": "Australia" }] },
+        { "id": "g3-quiz", "type": "mcq", "title": "Continent quiz",
+          "items": [
+            { "q": "What is a continent?", "opts": ["A small island", "A very large area of land", "A type of ocean"], "a": 1 },
+            { "q": "How many continents are there?", "opts": ["5", "10", "7"], "a": 2 },
+            { "q": "We live in the UAE. Which continent is that?", "opts": ["Africa", "Asia", "Europe", "Australia"], "a": 1 },
+            { "q": "Which continent is the smallest?", "opts": ["Australia", "Asia", "Africa"], "a": 0 }
+          ] },
+        { "id": "g3-order", "type": "order", "title": "Biggest to smallest", "prompt": "Tap the continents from biggest to smallest.",
+          "items": ["Asia", "Africa", "North America", "South America", "Antarctica", "Europe", "Australia"] }
+      ],
+      "more": [
+        { "id": "g3-size", "type": "order", "title": "Small to big", "prompt": "Tap from smallest to biggest.",
+          "items": [{ "p": "🏝️", "t": "island" }, { "p": "🗺️", "t": "country" }, { "p": "🌏", "t": "continent" }] },
+        { "id": "g3-clues", "type": "clues", "title": "Which continent am I?", "q": "Which continent am I?",
+          "items": [
+            { "clues": ["I am covered in ice and snow.", "I am the coldest place on Earth.", "Penguins live here."], "a": "Antarctica", "opts": ["Africa", "Antarctica", "Asia", "Europe"] },
+            { "clues": ["I am the smallest continent.", "Kangaroos hop around here.", "I am surrounded by sea."], "a": "Australia", "opts": ["Australia", "South America", "Europe", "Asia"] },
+            { "clues": ["I am the biggest continent.", "The UAE is part of me.", "Camels and pandas live here."], "a": "Asia", "opts": ["Africa", "North America", "Asia", "Antarctica"] },
+            { "clues": ["I am the second biggest continent.", "Lions, zebras and giraffes live here.", "The long River Nile flows through me."], "a": "Africa", "opts": ["Europe", "Asia", "Australia", "Africa"] }
+          ] },
+        { "id": "g3-talk", "type": "card", "kind": "talk", "title": "Where would you go?", "text": "Which continent would you like to visit, and why? Tell your family one animal or place you would love to see there." }
+      ]
+    },
+    "msc": {
+      "topic": "Everyone around me",
+      "goal": "I can name people who are important to me and show care and kindness to them.",
+      "learn": [
+        { "title": "Important people", "text": "Our family and friends care for us, keep us safe and make us happy. Teachers help us learn.", "pics": [{ "p": "👨‍👩‍👧", "t": "family" }, { "p": "👫", "t": "friends" }, { "p": "👩‍🏫", "t": "teachers" }] },
+        { "title": "Showing care", "text": "We show care with kind words and kind actions: helping, sharing, and saying please and thank you.", "pics": [{ "p": "🤝", "t": "helping" }, { "p": "🍪", "t": "sharing" }, { "p": "🙏", "t": "being polite" }] },
+        { "title": "Kind or unkind?", "text": "Helping a friend who falls is kind. Laughing at them is unkind. Before we act, we can ask: will this make someone feel good?", "big": "👍 kind  ·  👎 unkind" }
+      ],
+      "practice": [
+        { "id": "c3-sort", "type": "sort", "title": "Thumbs up or down?", "prompt": "Is it kind and caring?",
+          "groups": ["👍 Kind and caring", "👎 Unkind"],
+          "items": [
+            { "t": "Helping a friend pick up their pencils", "g": 0 }, { "t": "Sharing my snack", "g": 0 }, { "t": "Saying please and thank you", "g": 0 }, { "t": "Hugging Grandma", "g": 0 },
+            { "t": "Laughing when a friend falls", "g": 1 }, { "t": "Grabbing a toy", "g": 1 }, { "t": "Leaving someone out of a game", "g": 1 }
+          ] },
+        { "id": "c3-mcq", "type": "mcq", "title": "What would you do?",
+          "items": [
+            { "q": "Your friend drops her crayons. What is kind?", "opts": ["Walk away", "Help pick them up", "Laugh"], "a": 1 },
+            { "q": "Grandma looks tired. What could you do?", "opts": ["Bring her some water", "Make lots of noise", "Hide her glasses"], "a": 0 },
+            { "q": "Which words are polite?", "opts": ["Give me that!", "Go away!", "Please may I have a turn?"], "a": 2 }
+          ] },
+        { "id": "c3-people", "type": "card", "kind": "talk", "title": "My important people", "text": "Name 3 people who are important to you. Tell a grown-up why each one is special." }
+      ],
+      "more": [
+        { "id": "c3-words", "type": "match", "title": "Caring words", "prompt": "Match each word to what it means.",
+          "pairs": [["family", "people who love and care for each other"], ["friend", "someone you enjoy playing and sharing with"], ["happy", "feeling joy"], ["funny", "something that makes you laugh"], ["polite", "using kind words like please"]] },
+        { "id": "c3-do", "type": "card", "kind": "do", "title": "Kindness mission", "text": "Do one kind or caring thing today. At dinner, tell your family what you did!" }
+      ]
+    }
+  }
+}

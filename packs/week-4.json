@@ -1,0 +1,219 @@
+{
+  "week": "Week 4",
+  "subjects": {
+    "english": {
+      "topic": "Power cut stories and word meanings",
+      "goal": "I can retell a story in order, show feelings without words, and work out what a word means from the sentence.",
+      "learn": [
+        { "title": "Tell it in order", "text": "When we retell a story, we say the important parts in the same order as the story. Order words help us.", "big": "First → Next → Then → Finally", "pics": [{ "p": "1️⃣", "t": "First" }, { "p": "2️⃣", "t": "Next" }, { "p": "3️⃣", "t": "Then" }, { "p": "4️⃣", "t": "Finally" }] },
+        { "title": "Be a story detective", "text": "To answer a question about a story, go back to the story and look for clues in the words and pictures. Don't guess!", "big": "Who? What? Where? Why? How?", "pics": [{ "p": "📖", "t": "read" }, { "p": "🔍", "t": "find clues" }, { "p": "💬", "t": "answer" }] },
+        { "title": "Feelings without words", "text": "Our face, eyes and body can show how we feel, even when we don't speak. This is called body language.", "pics": [{ "p": "😀", "t": "happy: big smile" }, { "p": "😟", "t": "worried: wide eyes" }, { "p": "😲", "t": "surprised: mouth open" }, { "p": "😢", "t": "sad: head down" }] },
+        { "title": "One word, two meanings", "text": "Some words have two meanings. Read the whole sentence to find out which meaning fits. A bat can be an animal, or a stick for hitting a ball!", "pics": [{ "p": "🦇", "t": "bat (animal)" }, { "p": "🏏", "t": "bat (for sport)" }, { "p": "📱", "t": "tablet (screen)" }, { "p": "💊", "t": "tablet (medicine)" }] },
+        { "title": "Word beginnings and endings", "text": "A prefix goes at the start of a word. A suffix goes at the end. They change the meaning. un- means not. -ful means full of. -ly tells us how.", "big": "happy → unhappy (not happy)", "extra": "help → helpful → helpfully" }
+      ],
+      "practice": [
+        { "id": "e4-story", "type": "story", "title": "The night the lights went out", "storyTitle": "The Night the Lights Went Out",
+          "text": "It was a hot evening in Dubai. Maryam and her little brother Omar were reading books in their flat.\nFirst, the lights flickered. Click! Everything went dark. The fan stopped and the TV went quiet. Omar felt worried, so he held Maryam's hand.\nNext, Dad found a torch in the kitchen drawer. Mum put a candle in a glass jar and placed it safely on the table.\nThen the family sat together on the sofa. Dad told funny stories and they made shadow animals on the wall.\nFinally, the lights came back on. Everyone cheered! \"That was the best power cut ever!\" laughed Omar.",
+          "targets": ["first", "next", "then", "finally"],
+          "need": 4, "prompt": "Read the story. Tap the 4 order words.", "missHint": "Look for a word that tells us when something happened." },
+        { "id": "e4-order", "type": "order", "title": "What happened first?", "prompt": "Put the story in order. Tap what happened first.",
+          "items": [{ "p": "💡", "t": "The lights went out." }, { "p": "🔦", "t": "Dad found a torch." }, { "p": "🛋️", "t": "They told stories on the sofa." }, { "p": "🎉", "t": "The lights came back on." }] },
+        { "id": "e4-meaning", "type": "mcq", "title": "Which meaning?",
+          "items": [
+            { "q": "A bat flew out of a cave in the Hajar Mountains. Here, bat means…", "opts": [{ "p": "🦇", "t": "an animal that flies" }, { "p": "🏏", "t": "a stick for hitting a ball" }], "a": 0 },
+            { "q": "I played a game on my tablet. Here, tablet means…", "opts": [{ "p": "📱", "t": "a small screen" }, { "p": "💊", "t": "medicine" }], "a": 0 },
+            { "q": "Grandma took a tablet for her headache. Here, tablet means…", "opts": [{ "p": "📱", "t": "a small screen" }, { "p": "💊", "t": "medicine" }], "a": 1 },
+            { "q": "I always lose my pencil! Here, lose means…", "opts": ["not win", "can't find it"], "a": 1 },
+            { "q": "Our team did not lose the race. Here, lose means…", "opts": ["not win", "can't find it"], "a": 0 },
+            { "q": "Omar hit the ball with his bat. Here, bat means…", "opts": [{ "p": "🦇", "t": "an animal that flies" }, { "p": "🏏", "t": "a stick for hitting a ball" }], "a": 1 }
+          ] }
+      ],
+      "more": [
+        { "id": "e4-build", "type": "build", "title": "Build new words", "prompt": "Make the word with the pieces.",
+          "items": [
+            { "a": "unhappy", "parts": ["un", "happy"], "extra": ["ful", "ly"], "meaning": "not happy" },
+            { "a": "helpful", "parts": ["help", "ful"], "extra": ["un", "ly"], "meaning": "full of help" },
+            { "a": "helpfully", "parts": ["help", "ful", "ly"], "extra": ["un"], "meaning": "in a helpful way" },
+            { "a": "untidy", "parts": ["un", "tidy"], "extra": ["ful", "ly"], "meaning": "not tidy" },
+            { "a": "quickly", "parts": ["quick", "ly"], "extra": ["un", "ful"], "meaning": "in a quick way" },
+            { "a": "playful", "parts": ["play", "ful"], "extra": ["un", "ly"], "meaning": "full of fun" }
+          ] },
+        { "id": "e4-wh", "type": "mcq", "title": "Story questions", "introTitle": "The Night the Lights Went Out",
+          "intro": "Maryam and Omar were reading in their flat in Dubai. First, the lights went out and the fan stopped. Omar felt worried. Next, Dad found a torch and Mum put a candle in a jar. Then the family told stories and made shadow animals. Finally, the lights came back on and everyone cheered.",
+          "items": [
+            { "q": "Where did the power cut happen?", "opts": ["At school", "In their flat in Dubai", "At the beach"], "a": 1 },
+            { "q": "Who found a torch?", "opts": ["Dad", "Omar", "Maryam"], "a": 0 },
+            { "q": "How did Omar feel when it went dark?", "opts": ["Sleepy", "Excited", "Worried"], "a": 2 },
+            { "q": "How did the family see in the dark?", "opts": ["With the TV", "With a torch and a candle", "With the fan"], "a": 1 },
+            { "q": "Why did the fan stop?", "opts": ["There was no electricity", "Omar broke it", "It was too cold"], "a": 0 }
+          ] },
+        { "id": "e4-bat", "type": "sort", "title": "Which bat?", "prompt": "Which kind of bat is in each sentence?",
+          "groups": ["🦇 The animal", "🏏 For hitting a ball"],
+          "items": [
+            { "t": "The bat slept upside down.", "g": 0 }, { "t": "A bat flew out of the dark cave.", "g": 0 }, { "t": "The bat flapped its wings.", "g": 0 },
+            { "t": "I hit the ball with my bat.", "g": 1 }, { "t": "Dad bought me a new cricket bat.", "g": 1 }, { "t": "She swung the bat really hard.", "g": 1 }
+          ] },
+        { "id": "e4-feelings", "type": "match", "title": "Body language", "prompt": "Match the body language to the feeling.",
+          "pairs": [["big smile, open arms", { "p": "😀", "t": "happy" }], ["wide eyes, stiff body", { "p": "😟", "t": "worried" }], ["eyebrows up, mouth open", { "p": "😲", "t": "surprised" }], ["head down, mouth turned down", { "p": "😢", "t": "sad" }]] },
+        { "id": "e4-act", "type": "card", "kind": "do", "title": "Feelings charades", "text": "Choose a feeling: happy, worried, surprised or sad. Show it with your face and body, but don't say a word! Can your family guess it?", "steps": ["Change your face.", "Change your eyes.", "Change how you stand.", "Let your family guess!"] },
+        { "id": "e4-write", "type": "card", "kind": "write", "title": "If the lights went out", "text": "Write 2 full sentences. What problem did Maryam's family have? What might happen if there was no electricity for a long time? Start with a capital letter and end with a full stop.", "example": "The lights went out in the family's flat. If there was no electricity for a long time, the food in the fridge would go bad." }
+      ]
+    },
+    "maths": {
+      "topic": "Odd and even, and units of time",
+      "goal": "I can tell if a number is odd or even, and I can order units of time from shortest to longest.",
+      "learn": [
+        { "title": "Sharing into two", "text": "An even number can be shared equally between 2 people. An odd number can't, because 1 is always left over.", "big": "6 → 3 and 3 ✅ even", "extra": "5 → 2 and 3 ❌ odd", "pics": [{ "p": "🍪", "t": "6 cookies: 3 each" }, { "p": "👫", "t": "2 friends" }] },
+        { "title": "Look at the last digit", "text": "For any number, just look at the ones digit at the end. 34 ends in 4, so it is even. 57 ends in 7, so it is odd.", "big": "Even numbers end in 0, 2, 4, 6, 8", "extra": "Odd numbers end in 1, 3, 5, 7, 9" },
+        { "title": "Odd and even in the UAE", "text": "The UAE has 7 emirates, and 7 is odd. A class of 26 children can make 2 equal teams of 13, because 26 is even. If there are 27, one child is left over!", "pics": [{ "p": "🏙️", "t": "7 emirates" }, { "p": "👫", "t": "26 = 13 + 13" }] },
+        { "title": "Units of time", "text": "We measure time in seconds, minutes, hours, days, weeks, months and years. A second is very short. A year is very long!", "big": "second → minute → hour → day → week → month → year", "pics": [{ "p": "⏱️", "t": "seconds" }, { "p": "🕐", "t": "hours" }, { "p": "📅", "t": "days" }, { "p": "🎂", "t": "years" }] },
+        { "title": "How they fit together", "text": "A car trip from Abu Dhabi to Dubai takes about 1 hour. A flight from Dubai to London takes about 7 hours. The flight is longer!", "big": "60 seconds = 1 minute · 60 minutes = 1 hour", "extra": "24 hours = 1 day · 7 days = 1 week · 12 months = 1 year" }
+      ],
+      "practice": [
+        { "id": "m4-sort", "type": "sort", "title": "Odd or even?", "prompt": "Look at the last digit. Is it odd or even?",
+          "groups": ["✌️ Even", "☝️ Odd"],
+          "items": [
+            { "t": "8", "g": 0, "big": true }, { "t": "24", "g": 0, "big": true }, { "t": "46", "g": 0, "big": true }, { "t": "90", "g": 0, "big": true }, { "t": "152", "g": 0, "big": true },
+            { "t": "7", "g": 1, "big": true }, { "t": "17", "g": 1, "big": true }, { "t": "35", "g": 1, "big": true }, { "t": "63", "g": 1, "big": true }, { "t": "429", "g": 1, "big": true }
+          ] },
+        { "id": "m4-units", "type": "order", "title": "Shortest to longest", "prompt": "Tap the units of time from shortest to longest.",
+          "items": [{ "p": "⏱️", "t": "second" }, { "p": "⏲️", "t": "minute" }, { "p": "🕐", "t": "hour" }, { "p": "☀️", "t": "day" }, { "p": "🗓️", "t": "week" }, { "p": "📅", "t": "month" }, { "p": "🎂", "t": "year" }] },
+        { "id": "m4-match", "type": "match", "title": "Time that's the same", "prompt": "Match the times that are the same.",
+          "pairs": [["1 minute", "60 seconds"], ["1 hour", "60 minutes"], ["1 day", "24 hours"], ["1 week", "7 days"], ["1 year", "12 months"]] }
+      ],
+      "more": [
+        { "id": "m4-share", "type": "mcq", "title": "Can we share it?",
+          "items": [
+            { "q": "Which number is even?", "opts": ["17", "24"], "a": 1 },
+            { "q": "26 children visit the Louvre Abu Dhabi. Can they make 2 equal groups?", "opts": ["Yes, 13 and 13", "No, one is left over"], "a": 0 },
+            { "q": "27 children visit the next day. Can they make 2 equal groups?", "opts": ["Yes, 13 and 13", "No, one is left over"], "a": 1 },
+            { "q": "The UAE has 7 emirates. Is 7 odd or even?", "opts": ["Even", "Odd"], "a": 1 },
+            { "q": "How do we know 58 is even?", "opts": ["It ends in 8", "It is a big number", "It has a 5 in it"], "a": 0 },
+            { "q": "Which number is odd?", "opts": ["20", "42", "35"], "a": 2 }
+          ] },
+        { "id": "m4-which", "type": "mcq", "title": "Which unit of time?",
+          "items": [
+            { "q": "A school day lasts about 6…", "opts": ["seconds", "hours", "years"], "a": 1 },
+            { "q": "A short cartoon lasts 30…", "opts": ["minutes", "months"], "a": 0 },
+            { "q": "Brushing your teeth takes 2…", "opts": ["weeks", "days", "minutes"], "a": 2 },
+            { "q": "The weekend is 2…", "opts": ["days", "hours"], "a": 0 },
+            { "q": "A flight from Dubai to London takes about 7…", "opts": ["minutes", "hours"], "a": 1 }
+          ] },
+        { "id": "m4-longer", "type": "mcq", "title": "Which is longer?",
+          "items": [
+            { "q": "Which is longer?", "opts": ["1 hour", "50 minutes"], "a": 0 },
+            { "q": "Which is longer?", "opts": ["1 hour", "90 minutes"], "a": 1 },
+            { "q": "Mariam swims for 45 minutes. Her brother swims for 1 hour. Who swims for longer?", "opts": ["Mariam", "Her brother"], "a": 1 },
+            { "q": "Abu Dhabi to Dubai by car: 1 hour. Dubai to London by plane: 7 hours. Which trip is longer?", "opts": ["The plane trip", "The car trip"], "a": 0 },
+            { "q": "Which is longer?", "opts": ["1 week", "5 days", "100 hours"], "a": 0 }
+          ] },
+        { "id": "m4-tens", "type": "gaps", "title": "Count on in tens",
+          "items": [
+            { "t": "13, 23, 33, ___, 53", "a": "43" },
+            { "t": "6, 16, 26, 36, ___", "a": "46" },
+            { "t": "50, 60, 70, ___, 90", "a": "80" },
+            { "t": "10 more than 47 is ___.", "a": "57" },
+            { "t": "10 more than 85 is ___.", "a": "95" }
+          ] },
+        { "id": "m4-mystery", "type": "clues", "title": "Mystery numbers",
+          "items": [
+            { "clues": ["I am between 40 and 50.", "I am even.", "My ones digit is 6."], "a": "46" },
+            { "clues": ["I am between 20 and 30.", "I am odd.", "My ones digit is 5."], "a": "25" },
+            { "clues": ["I am a 2-digit number.", "I am odd.", "My two digits are the same.", "I am less than 20."], "a": "11" }
+          ] },
+        { "id": "m4-hunt", "type": "card", "kind": "try", "title": "Odd and even hunt", "text": "Look for numbers when you are out and about. Is each one odd or even? Check the last digit!", "steps": ["Your house or flat number", "A bus or car number", "Today's date", "The number on a lift button"] },
+        { "id": "m4-days", "type": "card", "kind": "talk", "title": "Yesterday, today, tomorrow", "text": "Tell a grown-up: What day is it today? What day was yesterday? What day will it be tomorrow? Then say last month, this month and next month.", "example": "Today is Sunday. Yesterday was Saturday. Tomorrow will be Monday." }
+      ]
+    },
+    "gp": {
+      "topic": "How far does our food travel?",
+      "goal": "I can say where some of my food comes from and explain how it travels to our table.",
+      "learn": [
+        { "title": "Food comes from many places", "text": "Some of our food grows here in the UAE. Some comes from countries far away, and travels a long way to reach us.", "pics": [{ "p": "🌴", "t": "dates: UAE" }, { "p": "🍚", "t": "rice: India" }, { "p": "☕", "t": "coffee: Brazil" }, { "p": "🍌", "t": "bananas: far away" }] },
+        { "title": "From the farm to our table", "text": "Food is grown on a farm. A truck takes it away. A ship or plane carries it across the world. Then it goes to the market or shop, and finally to our home.", "big": "farm → truck → ship or plane → market → our table", "pics": [{ "p": "🚜", "t": "farm" }, { "p": "🚚", "t": "truck" }, { "p": "🚢", "t": "ship" }, { "p": "✈️", "t": "plane" }, { "p": "🏪", "t": "market" }] },
+        { "title": "Near or far?", "text": "Food from near us has a short journey. Food from other countries has a long journey.",
+          "compare": [
+            { "title": "🏠 Near", "pics": [{ "p": "🌴" }, { "p": "🐟" }], "lines": ["grown or caught in the UAE", "short trip by truck", "fresh and quick"] },
+            { "title": "🌍 Far", "pics": [{ "p": "🍌" }, { "p": "☕" }], "lines": ["grown in other countries", "long trip by ship or plane", "takes many days"] }
+          ] },
+        { "title": "Why do some foods travel far?", "text": "Some foods can't grow in the UAE. Bananas, coffee and cocoa for chocolate need lots of rain, so they grow in other countries and travel here.", "pics": [{ "p": "🌧️", "t": "lots of rain" }, { "p": "🍌", "t": "bananas" }, { "p": "🍫", "t": "chocolate" }] },
+        { "title": "Food from the UAE", "text": "UAE farms grow dates, tomatoes, lettuce and cucumbers. Fishermen catch fresh fish from our seas. This local food has only a short way to travel.", "pics": [{ "p": "🌴", "t": "dates" }, { "p": "🍅", "t": "tomatoes" }, { "p": "🥬", "t": "lettuce" }, { "p": "🥒", "t": "cucumbers" }, { "p": "🐟", "t": "fish" }] }
+      ],
+      "practice": [
+        { "id": "g4-journey", "type": "order", "title": "The food journey", "prompt": "Put the food's journey in order, from the farm to our table.",
+          "items": [{ "p": "🚜", "t": "farm" }, { "p": "🚚", "t": "truck" }, { "p": "🚢", "t": "ship" }, { "p": "🏪", "t": "market" }, { "p": "🍽️", "t": "our table" }] },
+        { "id": "g4-near", "type": "sort", "title": "Near or far?", "prompt": "Does it come from near (the UAE) or far (another country)?",
+          "groups": ["🏠 Near: from the UAE", "🌍 Far: from another country"],
+          "items": [
+            { "p": "🌴", "t": "UAE dates", "g": 0 }, { "p": "🐟", "t": "fish from our sea", "g": 0 }, { "p": "🍅", "t": "UAE farm tomatoes", "g": 0 }, { "p": "🥒", "t": "UAE cucumbers", "g": 0 },
+            { "p": "🍌", "t": "bananas from Ecuador", "g": 1 }, { "p": "☕", "t": "coffee from Brazil", "g": 1 }, { "p": "🍚", "t": "rice from India", "g": 1 }, { "p": "🥝", "t": "kiwi from New Zealand", "g": 1 }
+          ] },
+        { "id": "g4-quiz", "type": "mcq", "title": "Food journey quiz",
+          "items": [
+            { "q": "What carries food across the sea?", "opts": [{ "p": "🚚", "t": "a truck" }, { "p": "🚢", "t": "a ship" }, { "p": "🚲", "t": "a bike" }], "a": 1 },
+            { "q": "Why do bananas travel a long way to the UAE?", "opts": ["They need lots of rain to grow", "They like flying", "They are too heavy"], "a": 0 },
+            { "q": "Where can we buy fruit and vegetables?", "opts": ["At the airport", "At the beach", "At the market"], "a": 2 },
+            { "q": "Which food has the shortest trip to a home in Dubai?", "opts": ["Coffee from Brazil", "Dates from a UAE farm", "Bananas from Ecuador"], "a": 1 },
+            { "q": "What is the last stop on the food journey?", "opts": ["Our table", "The farm", "The ship"], "a": 0 }
+          ] }
+      ],
+      "more": [
+        { "id": "g4-match", "type": "match", "title": "Which country?", "prompt": "Match each food to a country that grows it.",
+          "pairs": [[{ "p": "🍚", "t": "rice" }, "India"], [{ "p": "☕", "t": "coffee" }, "Brazil"], [{ "p": "🍁", "t": "maple syrup" }, "Canada"], [{ "p": "🌴", "t": "dates" }, "UAE"], [{ "p": "🥝", "t": "kiwi" }, "New Zealand"]] },
+        { "id": "g4-find", "type": "find", "title": "Where is it grown?", "map": "world",
+          "targets": [{ "id": "asia", "name": "Asia (rice from India)" }, { "id": "samerica", "name": "South America (coffee from Brazil)" }, { "id": "namerica", "name": "North America (maple syrup from Canada)" }, { "id": "africa", "name": "Africa (oranges from Egypt)" }, { "id": "europe", "name": "Europe (cheese from the Netherlands)" }] },
+        { "id": "g4-words", "type": "gaps", "title": "Food journey words", "bank": ["travel", "plane", "ship", "market"],
+          "items": [
+            { "t": "Some foods ___ a long way to reach us.", "a": "travel" },
+            { "t": "A big ___ carries rice across the sea.", "a": "ship" },
+            { "t": "A ___ flies fresh fruit through the sky.", "a": "plane" },
+            { "t": "We buy tomatoes at the ___.", "a": "market" }
+          ] },
+        { "id": "g4-detective", "type": "card", "kind": "try", "title": "Food detective", "text": "Be a food detective in your kitchen. With a grown-up, look at 3 food packets or fruit stickers.", "steps": ["Find the country it came from.", "Is it near or far from the UAE?", "Did it come by truck, ship or plane?", "Which food travelled the furthest?"] },
+        { "id": "g4-farm", "type": "card", "kind": "draw", "title": "Think like a farmer", "text": "Imagine you have a farm in the UAE. Draw your farm and 3 foods you would grow. Why are local foods a good choice?" }
+      ]
+    },
+    "msc": {
+      "topic": "Toys old and new",
+      "goal": "I can sort toys into old and new, and say how toys have changed.",
+      "learn": [
+        { "title": "Toys long ago", "text": "Long ago, children played with toys made of wood, cloth and metal. They did not need batteries or screens.", "pics": [{ "p": "🪀", "t": "yo-yo" }, { "p": "🐴", "t": "rocking horse" }, { "p": "🪆", "t": "wooden doll" }, { "p": "🪁", "t": "kite" }] },
+        { "title": "Toys today", "text": "Many new toys are made of plastic. Some need batteries, and some have screens.", "pics": [{ "p": "🤖", "t": "robot" }, { "p": "🎮", "t": "video game" }, { "p": "🧱", "t": "building bricks" }, { "p": "🏎️", "t": "remote control car" }] },
+        { "title": "Then and now", "text": "Old and new toys are both fun! But they are made in different ways.",
+          "compare": [
+            { "title": "🕰️ Old toys", "pics": [{ "p": "🪀" }], "lines": ["wood, cloth and metal", "no batteries", "often made by hand"] },
+            { "title": "✨ New toys", "pics": [{ "p": "🤖" }], "lines": ["lots of plastic", "batteries or screens", "made in factories"] }
+          ] },
+        { "title": "Still loved today", "text": "Some toys are very old, but children still play with them today! Yo-yos, spinning tops, marbles, teddy bears and board games have been around for a long time.", "pics": [{ "p": "🪀", "t": "yo-yo" }, { "p": "🧸", "t": "teddy bear" }, { "p": "🎲", "t": "board games" }] },
+        { "title": "Long ago in the UAE", "text": "Long ago in the UAE, many children made their own toys from things like palm leaves, sticks and cloth. They played lots of games outside with their friends.", "pics": [{ "p": "🌴", "t": "palm leaves" }, { "p": "🪵", "t": "sticks" }, { "p": "🏃", "t": "outdoor games" }] }
+      ],
+      "practice": [
+        { "id": "c4-sort", "type": "sort", "title": "Old or new?", "prompt": "Is it a toy from long ago, or a new toy?",
+          "groups": ["🕰️ Old toy", "✨ New toy"],
+          "items": [
+            { "p": "🐴", "t": "rocking horse", "g": 0 }, { "t": "rag doll", "g": 0 }, { "t": "wooden spinning top", "g": 0 }, { "t": "jack-in-the-box", "g": 0 },
+            { "p": "🤖", "t": "robot", "g": 1 }, { "p": "🎮", "t": "video game", "g": 1 }, { "t": "slime", "g": 1 }, { "p": "🏎️", "t": "remote control car", "g": 1 }
+          ] },
+        { "id": "c4-made", "type": "match", "title": "What is it made of?", "prompt": "Match each toy to what it is made of.",
+          "pairs": [["rocking horse", "wood"], ["rag doll", "cloth"], ["robot", "plastic and batteries"], ["marbles", "glass"], ["toy soldier", "metal"]] },
+        { "id": "c4-quiz", "type": "mcq", "title": "Toy quiz",
+          "items": [
+            { "q": "Which toy needs batteries?", "opts": ["spinning top", "robot", "rag doll"], "a": 1 },
+            { "q": "What were many old toys made of?", "opts": ["wood and cloth", "plastic", "screens"], "a": 0 },
+            { "q": "Which old toy do children still play with today?", "opts": ["video game", "tablet", "yo-yo"], "a": 2 },
+            { "q": "How are many new toys different?", "opts": ["They are all made of wood", "They are plastic and some need batteries"], "a": 1 }
+          ] }
+      ],
+      "more": [
+        { "id": "c4-clues", "type": "clues", "title": "Which toy am I?", "q": "Which toy am I?",
+          "items": [
+            { "clues": ["I am an old toy.", "I am made of wood.", "You sit on me and rock back and forth."], "a": "rocking horse", "opts": [{ "p": "🤖", "t": "robot" }, { "p": "🐴", "t": "rocking horse" }, { "p": "🧸", "t": "teddy bear" }] },
+            { "clues": ["I am a new toy.", "I can move and beep.", "I need batteries."], "a": "robot", "opts": [{ "p": "🤖", "t": "robot" }, { "p": "🪀", "t": "yo-yo" }, { "p": "🪁", "t": "kite" }] },
+            { "clues": ["I am very old, but still fun today.", "I go up and down on a string."], "a": "yo-yo", "opts": [{ "p": "🎮", "t": "video game" }, { "p": "🐴", "t": "rocking horse" }, { "p": "🪀", "t": "yo-yo" }] }
+          ] },
+        { "id": "c4-ask", "type": "card", "kind": "talk", "title": "Ask a grandparent", "text": "Ask a grandparent or older family member: What toys did you play with when you were 6? What were they made of? Tell them about your favourite toy too!" },
+        { "id": "c4-draw", "type": "card", "kind": "draw", "title": "Old toy, new toy", "text": "Draw one old toy and one new toy. Tell a grown-up one way they are the same and one way they are different." }
+      ]
+    }
+  }
+}

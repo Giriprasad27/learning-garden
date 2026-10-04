@@ -1,0 +1,184 @@
+{
+  "week": "Week 5",
+  "subjects": {
+    "english": {
+      "topic": "Collections, commas and sounds",
+      "goal": "I can describe a character from what they do, use commas in a list, and use sounds to read new words.",
+      "learn": [
+        { "title": "The collector", "text": "In the poem Younger Brother, the boy collects lots of things: feathers, stones, seeds and badges. Someone who collects things is called a collector.", "pics": [{ "p": "🪶", "t": "feathers" }, { "p": "🪨", "t": "stones" }, { "p": "🌱", "t": "seeds" }, { "p": "🎖️", "t": "badges" }] },
+        { "title": "Actions show character", "text": "What a character does tells us what they are like. He collects lots of unusual things, so he is curious. He keeps socks under the bed, so he is messy!", "big": "socks under the bed → messy", "extra": "collects unusual things → curious" },
+        { "title": "Commas in a list", "text": "When we list 3 or more things, we put a comma between them. Before the last thing we write and. There is no comma before and.", "big": "I collect shells, stickers, keys and coins." },
+        { "title": "Sound it out", "text": "To read a new word: look at it, spot a sound you know, say each sound, then blend them together. Don't guess!", "big": "sh + ee + p = sheep", "extra": "Sounds to spot: sh · ai · ay · ee · igh" },
+        { "title": "This week's spellings", "text": "Look at the word. Say it. Cover it. Write it. Check it!", "big": "door · child · cold · pretty · desert" }
+      ],
+      "practice": [
+        { "id": "e5-spell", "type": "spell", "title": "Spelling practice",
+          "items": [
+            { "w": "door", "hint": "You open and close it." },
+            { "w": "child", "hint": "A young boy or girl." },
+            { "w": "cold", "hint": "The opposite of hot." },
+            { "w": "pretty", "hint": "Very nice to look at." },
+            { "w": "desert", "hint": "A hot, sandy place where camels live." }
+          ] },
+        { "id": "e5-commas", "type": "commas", "title": "Fix the list", "prompt": "Tap the gaps to add commas.",
+          "items": [
+            { "t": "I collect stickers badges pencils and feathers.", "c": [2, 3] },
+            { "t": "We saw camels falcons oryx and gazelles at the zoo.", "c": [2, 3] },
+            { "t": "I need pencils scissors glue and paper for art.", "c": [2, 3] },
+            { "t": "We took apples grapes and juice to the park.", "c": [2] },
+            { "t": "I found shells pebbles seaweed and a crab.", "c": [2, 3] }
+          ] },
+        { "id": "e5-phonics", "type": "build", "title": "Build words from sounds", "prompt": "Build the word from its sounds and parts.",
+          "items": [
+            { "a": "ship", "parts": ["sh", "i", "p"], "extra": ["ai"] },
+            { "a": "rain", "parts": ["r", "ai", "n"], "extra": ["ee"] },
+            { "a": "sheep", "parts": ["sh", "ee", "p"], "extra": ["igh"] },
+            { "a": "sunset", "parts": ["sun", "set"], "extra": ["rain"] },
+            { "a": "rainbow", "parts": ["rain", "bow"], "extra": ["sun"] },
+            { "a": "playground", "parts": ["play", "ground"], "extra": ["light"] }
+          ] }
+      ],
+      "more": [
+        { "id": "e5-character", "type": "mcq", "title": "What is he like?",
+          "items": [
+            { "q": "What one word goes with all of these? 🪶 🪨 🐚 🎖️", "opts": ["dinner", "weather", "collection"], "a": 2 },
+            { "q": "He collects lots of unusual things. He is…", "opts": ["curious", "sleepy", "angry"], "a": 0 },
+            { "q": "He keeps socks under his bed. He is…", "opts": ["messy", "tidy"], "a": 0 },
+            { "q": "He keeps half-made models. He is…", "opts": ["bored", "scared", "creative"], "a": 2 },
+            { "q": "What does a collector do?", "opts": ["Drives a bus", "Collects things", "Cooks food"], "a": 1 }
+          ] },
+        { "id": "e5-match", "type": "match", "title": "Collection match", "prompt": "Match each picture to its word.",
+          "pairs": [[{ "p": "🪶" }, "feathers"], [{ "p": "🪨" }, "stones"], [{ "p": "🌱" }, "seeds"], [{ "p": "🎖️" }, "badges"], [{ "p": "🧦" }, "socks"]] },
+        { "id": "e5-more-words", "type": "build", "title": "More sound words", "prompt": "Build the word from its sounds and parts.",
+          "items": [
+            { "a": "sunlight", "parts": ["sun", "light"], "extra": ["play"] },
+            { "a": "farmer", "parts": ["farm", "er"], "extra": ["ing"] },
+            { "a": "train", "parts": ["t", "r", "ai", "n"], "extra": ["ee"] },
+            { "a": "night", "parts": ["n", "igh", "t"], "extra": ["ai"] }
+          ] },
+        { "id": "e5-list", "type": "card", "kind": "write", "title": "My treasure list", "text": "Write a list of 5 things you would love to collect. Remember the commas, and \"and\" before the last one.", "example": "I would collect shells, stickers, keys, coins and feathers." },
+        { "id": "e5-diary", "type": "card", "kind": "write", "title": "Collector's diary", "text": "Pretend you are the Younger Brother. Write 3 sentences in his diary: what he collects, why he loves it, and one new thing he found today." }
+      ]
+    },
+    "maths": {
+      "topic": "Shapes and symmetry",
+      "goal": "I can name and sort 2D and 3D shapes, describe them, and spot shapes that are symmetrical.",
+      "learn": [
+        { "title": "2D shapes are flat", "text": "2D shapes are flat, like a drawing on paper. We describe them by counting their sides and corners. A corner is called a vertex.", "pics": [{ "p": "svg:circle", "t": "circle" }, { "p": "svg:square", "t": "square" }, { "p": "svg:triangle", "t": "triangle" }, { "p": "svg:rectangle", "t": "rectangle" }, { "p": "svg:pentagon", "t": "pentagon" }, { "p": "svg:hexagon", "t": "hexagon" }] },
+        { "title": "3D shapes are solid", "text": "3D shapes are solid. You can hold them in your hand, like a ball or a box!", "pics": [{ "p": "svg:cube", "t": "cube" }, { "p": "svg:cuboid", "t": "cuboid" }, { "p": "svg:sphere", "t": "sphere" }, { "p": "svg:cylinder", "t": "cylinder" }, { "p": "svg:cone", "t": "cone" }, { "p": "svg:pyramid", "t": "pyramid" }] },
+        { "title": "Faces, edges and vertices", "text": "A face is a flat side. An edge is where two faces meet. A vertex is a corner. A cube has 6 faces, 12 edges and 8 vertices.", "pics": [{ "p": "svg:cube", "t": "cube" }], "big": "6 faces · 12 edges · 8 vertices" },
+        { "title": "Curved or flat?", "text": "A sphere, cylinder and cone have a curved surface, so they can roll! A cube, cuboid and pyramid have only flat faces.", "pics": [{ "p": "⚽", "t": "rolls" }, { "p": "🥫", "t": "rolls" }, { "p": "🎲", "t": "flat faces" }, { "p": "📦", "t": "flat faces" }] },
+        { "title": "Symmetry", "text": "A shape is symmetrical when a line splits it into two halves that match exactly, like a mirror. Many buildings in the UAE are symmetrical too!", "pics": [{ "p": "svg:symheart", "t": "symmetrical" }, { "p": "svg:symA", "t": "symmetrical" }] }
+      ],
+      "practice": [
+        { "id": "m5-3d", "type": "match", "title": "Name the 3D shapes", "prompt": "Match each shape to its name.",
+          "pairs": [[{ "p": "svg:cube" }, "cube"], [{ "p": "svg:cuboid" }, "cuboid"], [{ "p": "svg:sphere" }, "sphere"], [{ "p": "svg:cylinder" }, "cylinder"], [{ "p": "svg:cone" }, "cone"], [{ "p": "svg:pyramid" }, "pyramid"]] },
+        { "id": "m5-curved", "type": "sort", "title": "Curved or flat?", "prompt": "Does it have a curved surface?",
+          "groups": ["🔵 Has a curved surface", "⬛ Only flat faces"],
+          "items": [
+            { "p": "svg:sphere", "t": "sphere", "g": 0 }, { "p": "svg:cylinder", "t": "cylinder", "g": 0 }, { "p": "svg:cone", "t": "cone", "g": 0 }, { "p": "⚽", "t": "ball", "g": 0 },
+            { "p": "svg:cube", "t": "cube", "g": 1 }, { "p": "svg:cuboid", "t": "cuboid", "g": 1 }, { "p": "svg:pyramid", "t": "pyramid", "g": 1 }, { "p": "📦", "t": "box", "g": 1 }
+          ] },
+        { "id": "m5-sym", "type": "sort", "title": "Symmetrical or not?", "prompt": "Can a line split it into two matching halves?",
+          "groups": ["✅ Symmetrical", "❌ Not symmetrical"],
+          "items": [
+            { "t": "A", "g": 0, "big": true }, { "t": "H", "g": 0, "big": true }, { "t": "M", "g": 0, "big": true }, { "t": "T", "g": 0, "big": true }, { "p": "svg:symheart", "g": 0 },
+            { "t": "F", "g": 1, "big": true }, { "t": "J", "g": 1, "big": true }, { "t": "L", "g": 1, "big": true }, { "t": "R", "g": 1, "big": true }
+          ] }
+      ],
+      "more": [
+        { "id": "m5-2d", "type": "match", "title": "Name the 2D shapes", "prompt": "Match each shape to its name.",
+          "pairs": [[{ "p": "svg:circle" }, "circle"], [{ "p": "svg:square" }, "square"], [{ "p": "svg:triangle" }, "triangle"], [{ "p": "svg:rectangle" }, "rectangle"], [{ "p": "svg:pentagon" }, "pentagon"], [{ "p": "svg:hexagon" }, "hexagon"]] },
+        { "id": "m5-count", "type": "gaps", "title": "Count faces and corners",
+          "items": [
+            { "t": "A cube has ___ flat faces.", "a": "6", "p": "svg:cube" },
+            { "t": "A cube has ___ vertices (corners).", "a": "8", "p": "svg:cube" },
+            { "t": "A cylinder has ___ flat faces.", "a": "2", "p": "svg:cylinder" },
+            { "t": "A sphere has ___ flat faces.", "a": "0", "p": "svg:sphere" },
+            { "t": "A triangle has ___ sides.", "a": "3", "p": "svg:triangle" },
+            { "t": "A hexagon has ___ sides.", "a": "6", "p": "svg:hexagon" }
+          ] },
+        { "id": "m5-clues", "type": "clues", "title": "Mystery shapes", "q": "Which shape am I?",
+          "items": [
+            { "clues": ["I have 6 flat faces.", "All my faces are squares.", "Dice are made in my shape."], "a": "cube", "opts": [{ "p": "svg:cuboid", "t": "cuboid" }, { "p": "svg:cube", "t": "cube" }, { "p": "svg:pyramid", "t": "pyramid" }] },
+            { "clues": ["I have 2 flat faces.", "I have 1 curved surface.", "I can roll, like a can."], "a": "cylinder", "opts": [{ "p": "svg:cylinder", "t": "cylinder" }, { "p": "svg:sphere", "t": "sphere" }, { "p": "svg:cone", "t": "cone" }] },
+            { "clues": ["I have no flat faces.", "I am round all over.", "A football is my shape."], "a": "sphere", "opts": [{ "p": "svg:cone", "t": "cone" }, { "p": "svg:cylinder", "t": "cylinder" }, { "p": "svg:sphere", "t": "sphere" }] },
+            { "clues": ["I have a square at the bottom.", "My other faces are triangles.", "They all meet at a point on top."], "a": "pyramid", "opts": [{ "p": "svg:pyramid", "t": "pyramid" }, { "p": "svg:cone", "t": "cone" }, { "p": "svg:cube", "t": "cube" }] }
+          ] },
+        { "id": "m5-hunt", "type": "card", "kind": "try", "title": "Shape hunt at home", "text": "Find these shapes around your home. Tell a grown-up what each one is!", "steps": ["2 cuboids (try a tissue box)", "2 cylinders (try a can)", "1 sphere (try a ball)", "1 thing that is symmetrical"] }
+      ]
+    },
+    "gp": {
+      "topic": "Countries big and small",
+      "goal": "I can say what a country is and compare large and small countries. I can talk about where our food comes from.",
+      "learn": [
+        { "title": "What is a country?", "text": "A country is an area of land with borders around it. Each country has its own name, flag, leaders and rules. There are nearly 200 countries in the world!", "pics": [{ "p": "🗺️", "t": "borders" }, { "p": "🏛️", "t": "leaders" }, { "p": "📜", "t": "rules" }] },
+        { "title": "Big and small countries", "text": "Countries come in all sizes. Canada is huge and has thousands of lakes. Vatican City is the smallest country in the world, smaller than a big park!", "big": "Canada → very big   ·   Vatican City → tiny" },
+        { "title": "Our country", "text": "We live in the UAE, a country in Asia. It sits next to the sparkling Arabian Gulf.", "map": { "highlight": ["asia"], "labels": true, "uae": true } },
+        { "title": "Where does our food come from?", "text": "Some food grows on plants, like dates, rice and tomatoes. Some comes from animals, like milk, eggs and fish. Local food is grown near where we live, like UAE dates!", "pics": [{ "p": "🌴", "t": "dates" }, { "p": "🍅", "t": "tomatoes" }, { "p": "🥛", "t": "milk" }, { "p": "🥚", "t": "eggs" }, { "p": "🐟", "t": "fish" }] }
+      ],
+      "practice": [
+        { "id": "g5-true", "type": "sort", "title": "True or not true?", "prompt": "Is it true?",
+          "groups": ["👍 True", "👎 Not true"],
+          "items": [
+            { "t": "A country has borders", "g": 0 }, { "t": "Countries can be found on maps", "g": 0 }, { "t": "The UAE is a country", "g": 0 }, { "t": "Every country has its own flag", "g": 0 },
+            { "t": "All countries are the same size", "g": 1 }, { "t": "A country is a kind of ocean", "g": 1 }
+          ] },
+        { "id": "g5-quiz", "type": "mcq", "title": "Country quiz",
+          "items": [
+            { "q": "What shows where one country stops and another starts?", "opts": ["Tall trees", "Border lines", "Clouds"], "a": 1 },
+            { "q": "Which country is very, very big?", "opts": ["Canada", "Vatican City"], "a": 0 },
+            { "q": "Which is the smallest country in the world?", "opts": ["The UAE", "Canada", "Vatican City"], "a": 2 },
+            { "q": "Which continent is the UAE in?", "opts": ["Asia", "Europe", "Africa"], "a": 0 }
+          ] },
+        { "id": "g5-food", "type": "sort", "title": "Where is food from?", "prompt": "Does it come from a plant or an animal?",
+          "groups": ["🌱 From plants", "🐄 From animals"],
+          "items": [
+            { "p": "🌴", "t": "dates", "g": 0 }, { "p": "🍚", "t": "rice", "g": 0 }, { "p": "🍅", "t": "tomatoes", "g": 0 }, { "p": "🍞", "t": "bread", "g": 0 },
+            { "p": "🥛", "t": "milk", "g": 1 }, { "p": "🥚", "t": "eggs", "g": 1 }, { "p": "🐟", "t": "fish", "g": 1 }, { "p": "🍯", "t": "honey", "g": 1 }
+          ] }
+      ],
+      "more": [
+        { "id": "g5-order", "type": "order", "title": "Biggest to smallest", "prompt": "Tap the countries from biggest to smallest.", "items": ["Canada", "UAE", "Vatican City"] },
+        { "id": "g5-find", "type": "find", "title": "Find the continents again", "map": "world",
+          "targets": [{ "id": "asia", "name": "Asia (where the UAE is)" }, { "id": "namerica", "name": "North America (where Canada is)" }, { "id": "europe", "name": "Europe (where Vatican City is)" }] },
+        { "id": "g5-opinion", "type": "card", "kind": "talk", "title": "My food opinion", "text": "Ask a grown-up where your favourite food comes from. Is it grown in the UAE, or does it come from far away? Then share your opinion: \"I think… because…\"" }
+      ]
+    },
+    "msc": {
+      "topic": "My family",
+      "goal": "I can describe my family and explain how family members help each other.",
+      "learn": [
+        { "title": "What is a family?", "text": "A family is a group of people who care for each other and help each other. Some families are big and some are small. Every family is special.", "pics": [{ "p": "👨‍👩‍👧‍👦", "t": "big family" }, { "p": "👩‍👧", "t": "small family" }] },
+        { "title": "Family words", "text": "Families can have mums, dads, brothers, sisters, grandparents, aunts, uncles, cousins, and even pets!", "pics": [{ "p": "👵", "t": "grandma" }, { "p": "👴", "t": "grandpa" }, { "p": "🧒", "t": "cousin" }, { "p": "🐱", "t": "pet" }] },
+        { "title": "Everyone helps", "text": "In a family, everyone can help. Grown-ups cook and drive. Children can tidy toys, water plants, feed a pet or play with a baby.", "pics": [{ "p": "🧸", "t": "tidy toys" }, { "p": "🪴", "t": "water plants" }, { "p": "🐾", "t": "feed the pet" }] },
+        { "title": "Families in the UAE", "text": "Many families in the UAE meet at their grandparents' home for Friday lunch. On Eid and National Day, families and neighbours share food and help each other.", "pics": [{ "p": "🍽️", "t": "family lunch" }, { "p": "🌙", "t": "Eid" }] }
+      ],
+      "practice": [
+        { "id": "c5-story", "type": "story", "title": "Ali's family", "storyTitle": "Ali's Family",
+          "text": "Ali is seven and lives in Dubai. He lives with his mum, his dad, his big brother Khaled, his baby sister Hamda, his grandma, his grandpa and his cat, Lulu.\nEveryone in Ali's family helps. Khaled tidies the bedroom. Mum cooks dinner and Grandma looks after baby Hamda. Grandpa works in the garden. Dad helps with homework and cooks at the weekend.\nAli helps too! He plays with Hamda and cleans Lulu's bed and toys.",
+          "targets": ["mum", "dad", "khaled", "hamda", "grandma", "grandpa", "lulu", "brother", "sister", "cat"],
+          "need": 5, "prompt": "Tap 5 people (or pets!) in Ali's family.", "missHint": "That's not a family member. Try another word!" },
+        { "id": "c5-quiz", "type": "mcq", "title": "Questions about Ali", "introTitle": "Ali's Family",
+          "intro": "Ali is seven and lives in Dubai with his mum, dad, big brother Khaled, baby sister Hamda, grandma, grandpa and cat Lulu. Khaled tidies the bedroom. Mum cooks dinner and Grandma looks after Hamda. Grandpa works in the garden. Dad helps with homework. Ali plays with Hamda and cleans Lulu's bed.",
+          "items": [
+            { "q": "Who is Lulu?", "opts": ["Ali's cousin", "Ali's pet cat"], "a": 1 },
+            { "q": "Who looks after baby Hamda?", "opts": ["Grandma", "Khaled"], "a": 0 },
+            { "q": "What does Grandpa do?", "opts": ["He drives a bus", "He works in the garden"], "a": 1 },
+            { "q": "How does Ali help?", "opts": ["He plays with Hamda and cleans Lulu's bed", "He cooks dinner"], "a": 0 },
+            { "q": "Why is it good when everyone helps?", "opts": ["Only Mum has to work", "The family shares the jobs"], "a": 1 }
+          ] },
+        { "id": "c5-sort", "type": "sort", "title": "Who can help?", "prompt": "Who does each job?",
+          "groups": ["🧒 I can help with this", "🧑 A grown-up does this"],
+          "items": [
+            { "t": "tidy my toys", "g": 0 }, { "t": "feed the pet", "g": 0 }, { "t": "water the plants", "g": 0 }, { "t": "set the table", "g": 0 },
+            { "t": "drive to school", "g": 1 }, { "t": "use the oven", "g": 1 }, { "t": "pay at the shop", "g": 1 }
+          ] }
+      ],
+      "more": [
+        { "id": "c5-draw", "type": "card", "kind": "draw", "title": "How I help", "text": "Draw one way you help at home. Then do that job today!" },
+        { "id": "c5-why", "type": "card", "kind": "talk", "title": "Why help?", "text": "Tell a grown-up why it is good when everyone in a family helps. Give one example from your home." }
+      ]
+    }
+  }
+}

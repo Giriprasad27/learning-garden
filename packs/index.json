@@ -1,0 +1,8 @@
+{
+  "child": "Daksha",
+  "weeks": [
+    { "id": "week-3", "label": "Week 3", "file": "packs/week-3.json" },
+    { "id": "week-4", "label": "Week 4", "file": "packs/week-4.json" },
+    { "id": "week-5", "label": "Week 5", "file": "packs/week-5.json" }
+  ]
+}
