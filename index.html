@@ -29,7 +29,8 @@ h1 em{font-style:normal;color:var(--good)}
 .subjects button{--c:var(--soft);font-family:var(--display);font-weight:700;font-size:1.08rem;border:none;border-radius:18px;padding:10px 16px;background:var(--card);cursor:pointer;box-shadow:0 4px 0 var(--line);display:flex;align-items:center;gap:8px}
 .subjects button[aria-pressed="true"]{background:var(--c);color:#fff;box-shadow:0 4px 0 color-mix(in srgb,var(--c) 70%,black)}
 .subjects .ico{font-size:1.3rem}
-.s-english{--c:var(--english)} .s-maths{--c:var(--maths)} .s-science{--c:var(--science)} .s-gp{--c:var(--gp)} .s-msc{--c:var(--msc)}
+.s-english{--c:var(--english)} .s-maths{--c:var(--maths)} .s-science{--c:var(--science)} .s-gp{--c:var(--gp)} .s-msc{--c:var(--msc)} .s-play{--c:#0f9aa8}
+.playframe{width:100%;border:none;border-radius:24px;background:var(--sky);display:block;min-height:520px}
 
 .topic{background:var(--card);border-radius:24px;padding:20px 22px;box-shadow:0 5px 0 var(--line);border-top:8px solid var(--c);display:flex;flex-direction:column;gap:6px}
 .eyebrow{font-family:var(--display);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
@@ -227,10 +228,6 @@ details.intro summary{font-family:var(--display);font-weight:600;cursor:pointer}
   <nav class="weeks" id="weeks" aria-label="Choose a week"></nav>
   <nav class="subjects" id="subjects" aria-label="Choose a subject"></nav>
   <main id="main"><div class="empty"><b>Opening the garden…</b>Getting this week's lessons ready.</div></main>
-  <footer>
-    <span>Want free practice?</span>
-    <a href="https://claude.ai/artifact/9q6kP95S1c35LorrsXa7Ps" target="_blank" rel="noopener">⌨️ Typing and sums garden</a>
-  </footer>
 </div>
 
 <script>
@@ -440,7 +437,7 @@ T.card=(a,P)=>{P.clear();P.dots(0,1);const icon={talk:"🗣️",write:"✏️",d
  P.stage.append(h("div",{class:"offcard"},h("div",{class:"bigico",text:icon}),h("p",{class:"eyebrow",text:label}),h("p",{class:"q",text:a.text}),a.steps?h("ul",{},a.steps.map(s=>h("li",{text:s}))):null,a.example?h("p",{class:"example"},h("b",{text:"Example: "}),a.example):null,speakBtn(a.text),h("p",{class:"sub",text:"This one happens away from the screen. Tap the button when it's done."}),h("button",{class:"go",type:"button",text:"We did it! ✅",onclick:P.finish})))};
 
 /* ---------- app ---------- */
-const SUBJ=[{id:"english",name:"English",ico:"📚"},{id:"maths",name:"Maths",ico:"🔢"},{id:"science",name:"Science",ico:"🔬"},{id:"gp",name:"Global Perspectives",ico:"🌍"},{id:"msc",name:"MSC",ico:"🤝"}];
+const SUBJ=[{id:"english",name:"English",ico:"📚"},{id:"maths",name:"Maths",ico:"🔢"},{id:"science",name:"Science",ico:"🔬"},{id:"gp",name:"Global Perspectives",ico:"🌍"},{id:"msc",name:"MSC",ico:"🤝"},{id:"play",name:"Typing & Sums",ico:"🎮"}];
 const TYPE={learn:["📖","Learn it"],mcq:["🅰️","Pick the answer"],gaps:["✍️","Fill the gap"],match:["🔗","Match it"],sort:["🧺","Sort it"],order:["🔢","Put in order"],clues:["🔍","Mystery clues"],build:["🧩","Build it"],blocks:["🧱","Blocks"],spell:["🔊","Spelling"],commas:["✏️","Commas"],find:["🗺️","Find it"],story:["📖","Story"],card:["🏡","Away from screen"]};
 let index=null,packs={},weekId=null,view="home";
 const $=id=>document.getElementById(id);
@@ -456,6 +453,7 @@ function renderWeeks(){$("weeks").replaceChildren(...index.weeks.map(w=>h("butto
 function renderSubjects(){$("subjects").replaceChildren(...SUBJ.map(s=>h("button",{type:"button",class:"s-"+s.id,"aria-pressed":s.id===prog.subj?"true":"false",onclick:()=>{prog.subj=s.id;save();renderHome()}},h("span",{class:"ico",text:s.ico}),s.name)))}
 function actList(S){return[...(S.learn?[{id:"learn",type:"learn",title:"Learn it",cards:S.learn}]:[]),...(S.practice||[]),...(S.more||[])]}
 function renderHome(){view="home";$("weeks").hidden=false;$("subjects").hidden=false;renderSubjects();
+ if(prog.subj==="play"){renderPlay();return}
  const s=SUBJ.find(x=>x.id===prog.subj),pack=packs[weekId],S=pack.subjects[s.id],m=$("main");m.className="s-"+s.id;
  if(!S){m.replaceChildren(h("div",{class:"empty"},h("b",{text:`No ${s.name} lessons for ${pack.week} yet`}),"When the school sends this week's work, it will appear here. Try another subject or week!"));return}
  const tile=(a,sec)=>{const [ico,kind]=TYPE[a.type]||["⭐",""];const done=prog.done[key(s.id,a.id)];return h("button",{class:"act",type:"button",onclick:()=>play(s.id,a)},h("span",{class:"aico",text:ico}),h("span",{class:"atxt"},h("b",{text:a.title}),h("small",{text:kind})),h("span",{class:"tick",text:done?"✅":""}))};
@@ -466,6 +464,15 @@ function renderHome(){view="home";$("weeks").hidden=false;$("subjects").hidden=f
  if(S.more&&S.more.length)out.push(h("h3",{class:"section-h"},"➕ More examples",h("small",{text:"Extra, whenever you like"})),h("div",{class:"grid"},S.more.map(a=>tile(a))));
  m.replaceChildren(...out)}
 
+let playFrame=null;
+function renderPlay(){$("weeks").hidden=true;const m=$("main");m.className="s-play";
+ if(!playFrame){playFrame=h("iframe",{class:"playframe",title:"Typing and sums practice",id:"playframe"});
+  playFrame.addEventListener("load",()=>{try{const d=playFrame.contentDocument;const hd=d.querySelector(".wrap > header");if(hd)hd.hidden=true;d.body.style.paddingBlock="8px 24px";
+   const fit=()=>{playFrame.style.height=Math.max(520,d.documentElement.scrollHeight)+"px"};fit();new ResizeObserver(fit).observe(d.body);
+   d.addEventListener("pointerdown",()=>playFrame.contentWindow.focus());const sc=d.getElementById("starCount");if(sc){let last=+sc.textContent||0;new MutationObserver(()=>{const v=+sc.textContent||0;if(v>last){prog.stars+=v-last;save();starEl.textContent=prog.stars}last=v}).observe(sc,{childList:true,characterData:true,subtree:true})}playFrame.contentWindow.focus()}catch(e){}});
+  fetch("typing.html").then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{playFrame.srcdoc=t}).catch(()=>{playFrame.src="typing.html"})}
+ m.replaceChildren(h("section",{class:"topic"},h("span",{class:"eyebrow",text:"Free practice · any day"}),h("h2",{text:"Typing & Sums"}),h("p",{text:"Type words and sentences, practise adding, taking away and times tables. Tap the game once, then use the keyboard."})),playFrame);
+ setTimeout(()=>{try{playFrame.contentWindow.focus()}catch(e){}},50)}
 function play(sid,a){view="play";$("weeks").hidden=true;$("subjects").hidden=true;const m=$("main");m.className="s-"+sid;
  const dots=h("div",{class:"dots","aria-hidden":"true"}),stage=h("div",{class:"stage"}),hint=h("p",{class:"hint","aria-live":"polite"});
  m.replaceChildren(h("section",{class:"player"},h("div",{class:"phead"},h("button",{class:"back",type:"button",text:"← Back",onclick:()=>{try{speechSynthesis.cancel()}catch(e){}renderHome();scrollTo(0,0)}}),h("h2",{class:"ptitle",text:a.title}),dots),stage,hint));

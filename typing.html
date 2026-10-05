@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>[hidden]{display:none!important}body{margin:0}</style>
+<title>Little Typing Garden</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@500;600;700&display=swap">
+<style>
+/* Layout: one big friendly card — mode tabs, picture/blocks + thing to answer, keyboard or number pad below. Single bright daytime look by choice. */
+:root{
+  --sky:#dff2ff; --ink:#23344d; --soft:#5b6f8c; --card:#ffffff;
+  --sun:#ffc93c; --sundark:#e6a800; --coral:#ff6f61; --leaf:#3cb371; --done:#b9c6d6;
+  --key:#f3f7fc; --keyline:#cdd9e8; --blue:#3b82d6; --bluelite:#cfe3fb; --coralite:#ffd9d4;
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --read:"Andika","Comic Sans MS","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+html,body{background:var(--sky);color:var(--ink)}
+body{font-family:var(--read);padding-inline:16px;padding-block:20px 32px}
+.wrap{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4vw,2.3rem);margin:0;text-wrap:balance}
+h1 span{color:var(--coral)}
+.stars{font-family:var(--display);font-size:1.4rem;background:var(--card);border-radius:999px;padding:6px 16px;font-variant-numeric:tabular-nums;box-shadow:0 3px 0 var(--keyline)}
+.modes{display:flex;gap:10px;flex-wrap:wrap}
+.modes button{font-family:var(--display);font-size:1.3rem;font-weight:700;border:none;border-radius:18px;padding:10px 22px;cursor:pointer;background:var(--card);color:var(--soft);box-shadow:0 4px 0 var(--keyline)}
+.modes button[aria-pressed="true"]{background:var(--blue);color:#fff;box-shadow:0 4px 0 #2563a8}
+.levels{display:flex;flex-wrap:wrap;gap:10px}
+.levels button,.tables button,.small{font-family:var(--display);font-size:1.1rem;font-weight:600;border:3px solid var(--keyline);background:var(--card);color:var(--ink);border-radius:16px;padding:8px 16px;cursor:pointer}
+.levels button[aria-pressed="true"],.tables button[aria-pressed="true"]{background:var(--sun);border-color:var(--sundark)}
+.tables{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tables span{font-family:var(--display);color:var(--soft);font-size:1.05rem;margin-right:4px}
+.tables button{min-width:48px;padding:6px 10px}
+.small{font-size:.95rem;padding:6px 12px}
+button:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.card{background:var(--card);border-radius:28px;padding:24px 20px 28px;box-shadow:0 6px 0 var(--keyline);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.pic{font-size:clamp(3.5rem,12vw,6rem);line-height:1;min-height:1em}
+.target{font-size:clamp(2.2rem,8vw,4.2rem);font-weight:700;letter-spacing:.06em;word-break:break-word;max-width:100%}
+.target .ch{display:inline-block;min-width:.35em;border-radius:10px;padding:0 .04em;transition:color .15s}
+.target .done{color:var(--leaf)}
+.target .now{background:var(--sun);animation:bob 1s ease-in-out infinite}
+.target .todo{color:var(--done)}
+.target .sp{min-width:.6em}
+.target .now.sp{background:none;border-bottom:6px solid var(--sun)}
+.oops{animation:shake .3s}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.hint{font-family:var(--display);font-size:1.25rem;color:var(--soft);min-height:1.6em;margin:0}
+.hint b{color:var(--coral)}
+.yay{font-family:var(--display);font-size:2rem;color:var(--leaf)}
+
+/* maths */
+.sum{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,9vw,4.4rem);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.25em;font-variant-numeric:tabular-nums}
+.na{color:var(--blue)} .nb{color:var(--coral)}
+.ans{display:inline-flex;gap:6px}
+.box{width:1.05em;height:1.3em;border:4px dashed var(--keyline);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink)}
+.box.cur{border-color:var(--sundark);border-style:solid;background:#fff7dc}
+.box.ok{border-color:var(--leaf);border-style:solid;color:var(--leaf)}
+.visual{width:100%;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:18px;overflow-x:auto;padding:6px 0}
+.grp{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.blocks{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;justify-content:center}
+.rods{display:flex;gap:4px;align-items:flex-end}
+.rod{width:14px;height:110px;border-radius:4px;background:repeating-linear-gradient(to bottom,var(--c) 0 9px,var(--cl) 9px 11px);position:relative}
+.ones{display:grid;grid-template-columns:repeat(5,14px);gap:3px;align-content:end}
+.one{width:14px;height:14px;border-radius:3px;background:var(--c);position:relative}
+.blue{--c:var(--blue);--cl:var(--bluelite)} .red{--c:var(--coral);--cl:var(--coralite)}
+.gone{opacity:.35}
+.gone::after{content:"";position:absolute;inset:-3px;background:linear-gradient(45deg,transparent 45%,var(--ink) 45% 55%,transparent 55%)}
+.cap{font-size:1rem;color:var(--soft)}
+.op{font-family:var(--display);font-size:2.4rem;color:var(--soft);align-self:center}
+.legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-size:.95rem;color:var(--soft)}
+.legend i{display:inline-block;vertical-align:middle;margin-right:6px}
+.arr{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.arow{display:flex;align-items:center;gap:5px}
+.dot{width:20px;height:20px;border-radius:50%;background:var(--c,var(--blue))}
+.arow:nth-child(odd){--c:var(--blue)} .arow:nth-child(even){--c:var(--coral)}
+.cnt{font-family:var(--display);font-weight:600;color:var(--soft);margin-left:10px;font-size:1.05rem;min-width:2ch;font-variant-numeric:tabular-nums}
+.cnt.hide{visibility:hidden}
+.gold{--c:var(--sun);--cl:#fff1c2}
+
+/* place-value mat + tray */
+.stage{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:stretch;width:100%}
+.mat{display:grid;grid-template-columns:minmax(150px,auto) minmax(110px,auto);border:3px solid var(--keyline);border-radius:18px;overflow:hidden;min-width:0}
+.col{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px 12px}
+.col+.col{border-left:3px dashed var(--keyline)}
+.colh{font-family:var(--display);font-weight:600;font-size:1rem;color:var(--soft);letter-spacing:.04em}
+.colh b{display:block;font-size:2rem;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.col .rods{min-height:110px;flex-wrap:wrap;max-width:230px;justify-content:center}
+.col .ones{min-height:60px}
+.tray{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px;border:3px dashed var(--coral);border-radius:18px;background:#fff6f4}
+.tray .colh{color:var(--coral)}
+.tray .blocks{min-height:60px}
+.rod,.one{transition:opacity .3s}
+.new{animation:pop .45s ease-out}
+.fromtray{animation:slidein .55s ease-out}
+.out{animation:flyout .55s ease-in forwards}
+.glow{box-shadow:0 0 0 3px var(--sundark)}
+@keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.25)}100%{transform:scale(1);opacity:1}}
+@keyframes slidein{0%{transform:translateX(120px);opacity:.2}100%{transform:none;opacity:1}}
+@keyframes flyout{to{transform:translate(50px,-70px) rotate(35deg);opacity:0}}
+.say{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--ink);min-height:1.5em;margin:0;text-wrap:balance}
+.say b{color:var(--coral)}
+.show{font-family:var(--display);font-size:1.15rem;font-weight:700;border:none;border-radius:16px;padding:10px 20px;background:var(--leaf);color:#fff;cursor:pointer;box-shadow:0 4px 0 #2a8a55}
+.show:disabled{opacity:.5;cursor:default}
+.show.pulse{animation:pulse 1s ease-in-out 3}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.nlwrap{width:100%;overflow-x:auto;border-radius:14px;background:#f6fbff}
+.nlwrap svg{display:block}
+.nl-axis{stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.nl-tick{stroke:var(--soft);stroke-width:1.5}
+.nl-ten{stroke:var(--ink);stroke-width:3}
+.nl-lbl{fill:var(--soft);font:600 14px var(--display);text-anchor:middle}
+.nl-start{fill:var(--blue);font:700 16px var(--display);text-anchor:middle}
+.nl-hop{fill:none;stroke:var(--coral);stroke-width:3;stroke-linecap:round}
+.nl-hopl{fill:var(--coral);font:700 13px var(--display);text-anchor:middle}
+.nl-cur{fill:var(--ink);font:700 18px var(--display);text-anchor:middle}
+.frog{transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
+
+.kb{display:flex;flex-direction:column;gap:6px;align-items:center;overflow-x:auto;padding-bottom:4px}
+.row{display:flex;gap:6px}
+.k{font-family:var(--read);font-weight:700;font-size:clamp(.85rem,2.6vw,1.15rem);width:clamp(26px,7.4vw,52px);height:clamp(34px,8vw,52px);border-radius:10px;border:2px solid var(--keyline);background:var(--key);color:var(--ink);box-shadow:0 3px 0 var(--keyline);cursor:pointer;padding:0}
+.k.space{width:min(60vw,340px)}
+.k.next{background:var(--sun);border-color:var(--sundark);box-shadow:0 3px 0 var(--sundark)}
+.k.press{transform:translateY(3px);box-shadow:none}
+.pad{display:grid;grid-template-columns:repeat(6,auto);gap:8px;justify-content:center}
+.pad .k{width:clamp(44px,12vw,60px);height:clamp(44px,12vw,60px);font-family:var(--display);font-size:1.5rem}
+.tip{font-size:.95rem;color:var(--soft);text-align:center;margin:0}
+@media (max-width:520px){.pad{grid-template-columns:repeat(4,auto)}.rod{height:90px;width:12px}}
+@media (prefers-reduced-motion:reduce){.target .now,.oops,.new,.fromtray,.show.pulse{animation:none}.frog{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Little <span>Typing</span> Garden</h1>
+    <div class="stars" aria-live="polite">⭐ <span id="starCount">0</span></div>
+  </header>
+
+  <nav class="modes" aria-label="Choose what to practise">
+    <button id="m-type" data-mode="type" aria-pressed="true">⌨️ Typing</button>
+    <button id="m-math" data-mode="math" aria-pressed="false">🔢 Maths</button>
+  </nav>
+
+  <nav class="levels" id="typeLevels" aria-label="Typing level">
+    <button id="lv-letters" data-lv="letters">Letters</button>
+    <button id="lv-words" data-lv="words" aria-pressed="true">Words</button>
+    <button id="lv-tricky" data-lv="tricky">Tricky words</button>
+    <button id="lv-sentences" data-lv="sentences">Sentences</button>
+  </nav>
+
+  <nav class="levels" id="mathLevels" aria-label="Maths topic" hidden>
+    <button id="mt-add" data-mt="add" aria-pressed="true">➕ Adding</button>
+    <button id="mt-sub" data-mt="sub">➖ Taking away</button>
+    <button id="mt-times" data-mt="times">✖️ Times tables</button>
+  </nav>
+  <div class="tables" id="tables" hidden>
+    <span>Table of</span>
+  </div>
+
+  <main class="card" id="card">
+    <div class="pic" id="pic" aria-hidden="true"></div>
+    <div class="target" id="target" aria-live="polite"></div>
+    <div class="sum" id="sum" hidden></div>
+    <div class="visual" id="visual" hidden></div>
+    <p class="say" id="say" hidden></p>
+    <div class="nlwrap" id="nlwrap" hidden></div>
+    <button class="show" id="showBtn" type="button" hidden>▶ Show me how</button>
+    <div class="legend" id="legend" hidden></div>
+    <p class="hint" id="hint"></p>
+  </main>
+
+  <div class="kb" id="kb" aria-label="Keyboard helper"></div>
+  <div class="pad" id="pad" aria-label="Number keys" hidden></div>
+  <p class="tip" id="tip">Find the yellow key on the keyboard and press it. Capital letters? Just press the letter — no need for Shift.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let mode="type", stars=0, locked=false, actx=null;
+
+function beep(f,d){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=f;o.type="sine";g.gain.setValueAtTime(.15,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+d);o.connect(g).connect(actx.destination);o.start();o.stop(actx.currentTime+d)}catch(e){}}
+function pressKey(sel){const k=document.querySelector(sel);if(k){k.classList.add("press");setTimeout(()=>k.classList.remove("press"),120)}}
+function shake(el){el.classList.remove("oops");void el.offsetWidth;el.classList.add("oops")}
+const CHEERS=["Well done!","Super!","Amazing!","You did it!","Brilliant!","Great job!","Clever girl!"];
+function celebrate(next){
+  locked=true;stars++;$("starCount").textContent=stars;
+  $("hint").innerHTML='<span class="yay">'+CHEERS[Math.floor(Math.random()*CHEERS.length)]+" ⭐</span>";
+  [660,880,1046].forEach((f,i)=>setTimeout(()=>beep(f,.18),i*120));
+  setTimeout(next,1600);
+}
+const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+
+/* ---------- TYPING ---------- */
+const SETS={
+  letters:"a s d f j k l g h e i o u t n r m p b c".split(" ").map(w=>[w,""]),
+  words:[["cat","🐱"],["dog","🐶"],["sun","☀️"],["hat","🎩"],["bus","🚌"],["fish","🐟"],["cup","🥤"],["bed","🛏️"],["pig","🐷"],["hen","🐔"],["fox","🦊"],["car","🚗"],["star","⭐"],["frog","🐸"],["duck","🦆"],["tree","🌳"],["moon","🌙"],["cake","🎂"],["book","📖"],["ball","⚽"],["mum","👩"],["dad","👨"],["egg","🥚"],["bee","🐝"]],
+  tricky:["the","said","was","you","they","my","here","there","come","some","one","have","like","what","when","because","friend","school","people"].map(w=>[w,"✏️"]),
+  sentences:[["I can run.","🏃"],["The cat is fat.","🐱"],["I like my mum.","💛"],["We go to school.","🏫"],["The sun is hot.","☀️"],["A big red bus.","🚌"],["I see a fish.","🐟"],["My dog can jump.","🐶"],["I love my dad.","💙"],["The frog is green.","🐸"],["We play in the park.","🛝"],["I have a red ball.","⚽"]]
+};
+let level="words",item=null,pos=0,lastIdx=-1;
+const kb=$("kb");
+["qwertyuiop","asdfghjkl","zxcvbnm"].forEach(r=>{const row=document.createElement("div");row.className="row";
+  [...r].forEach(c=>{const b=document.createElement("button");b.className="k";b.textContent=c;b.dataset.k=c;b.type="button";row.appendChild(b)});kb.appendChild(row)});
+{const row=document.createElement("div");row.className="row";
+ const s=document.createElement("button");s.className="k space";s.textContent="space";s.dataset.k=" ";s.type="button";
+ const p=document.createElement("button");p.className="k";p.textContent=".";p.dataset.k=".";p.type="button";
+ row.append(s,p);kb.appendChild(row)}
+kb.addEventListener("click",e=>{const k=e.target.closest(".k");if(k)typeKey(k.dataset.k)});
+
+function pickWord(){const list=SETS[level];let i;do{i=Math.floor(Math.random()*list.length)}while(list.length>1&&i===lastIdx);lastIdx=i;item=list[i];pos=0;locked=false;renderWord()}
+function renderWord(){
+  const [text,pic]=item;$("pic").textContent=pic;
+  const t=$("target");t.innerHTML="";
+  [...text].forEach((c,i)=>{const s=document.createElement("span");
+    s.className="ch "+(i<pos?"done":i===pos?"now":"todo")+(c===" "?" sp":"");
+    s.textContent=c===" "?" ":c;t.appendChild(s)});
+  const next=text[pos];
+  kb.querySelectorAll(".k").forEach(k=>k.classList.toggle("next",next!==undefined&&k.dataset.k===next.toLowerCase()));
+  if(next===undefined)return;
+  $("hint").innerHTML=next===" "?"Press the long <b>space</b> bar":next==="."?"Press the <b>dot</b> key":"Press <b>"+next.toLowerCase()+"</b>";
+}
+function typeKey(key){
+  if(locked||!item)return;
+  const want=item[0][pos];
+  pressKey(`#kb .k[data-k="${CSS.escape(key.toLowerCase())}"]`);
+  if(key.toLowerCase()===want.toLowerCase()){pos++;beep(520+pos*30,.12);
+    if(pos>=item[0].length){renderWord();celebrate(pickWord)}else renderWord();
+  }else{shake($("target"));$("hint").innerHTML="Oops! Look for the <b>yellow</b> key 🙂";beep(200,.15)}
+}
+
+/* ---------- MATHS ---------- */
+let mt="add",table=2,q=null,typed="",tries=0;
+const pad=$("pad");
+"1234567890".split("").concat(["⌫"]).forEach(c=>{const b=document.createElement("button");b.className="k";b.type="button";b.textContent=c;b.dataset.k=c==="⌫"?"Backspace":c;pad.appendChild(b)});
+pad.addEventListener("click",e=>{const k=e.target.closest(".k");if(k)mathKey(k.dataset.k)});
+const tb=$("tables");
+for(let n=1;n<=10;n++){const b=document.createElement("button");b.type="button";b.id="tb-"+n;b.textContent=n;b.dataset.t=n;b.setAttribute("aria-pressed",n===table?"true":"false");tb.appendChild(b)}
+tb.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;table=+b.dataset.t;
+  tb.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));b.blur();step=0;newQ()});
+
+let step=0,demoToken=0,demoOn=false,M=null,nl=null,uid=0;
+function newQ(){
+  typed="";tries=0;locked=false;demoToken++;demoOn=false;
+  if(mt==="add"){let a,b;do{a=rnd(10,79);b=rnd(3,40)}while(a+b>99);q={a,b,ans:a+b,sym:"+"}}
+  else if(mt==="sub"){const a=rnd(20,99),b=rnd(3,Math.min(a-1,59));q={a,b,ans:a-b,sym:"−"}}
+  else{step=step%10+1;q={a:step,b:table,ans:step*table,sym:"×"}}
+  renderSum();buildVisual();syncMathUI();
+}
+function renderSum(){
+  const len=String(q.ans).length;
+  let boxes="";for(let i=0;i<len;i++)boxes+=`<span class="box${i<typed.length?" ok":i===typed.length?" cur":""}">${typed[i]||""}</span>`;
+  $("sum").innerHTML=`<span class="na">${q.a}</span><span>${q.sym}</span><span class="nb">${q.b}</span><span>=</span><span class="ans" id="ans">${boxes}</span>`;
+}
+const blk=(c,st="")=>({id:++uid,c,st});
+const fill=(n,c)=>Array.from({length:n},()=>blk(c));
+function buildVisual(){
+  const lg=$("legend");
+  if(mt==="times"){
+    let rows="";for(let r=1;r<=q.a;r++){let d="";for(let c=0;c<q.b;c++)d+='<div class="dot"></div>';rows+=`<div class="arow">${d}<span class="cnt${tries?"":" hide"}">${r*q.b}</span></div>`}
+    $("visual").innerHTML=`<div class="grp"><div class="arr">${rows}</div><div class="cap">${q.a} ${q.a===1?"group":"groups"} of ${q.b}</div></div>`;
+    lg.innerHTML=`<span>Count in ${q.b}s down the rows: ${Array.from({length:Math.min(q.a,3)},(_,i)=>(i+1)*q.b).join(", ")}…</span>`;
+    $("hint").innerHTML=`${q.a} lots of ${q.b} makes…?`;return;
+  }
+  const at=Math.floor(q.a/10),ao=q.a%10,bt=Math.floor(q.b/10),bo=q.b%10;
+  M={tens:fill(at,"blue"),ones:fill(ao,"blue"),trayT:mt==="add"?fill(bt,"red"):[],trayO:mt==="add"?fill(bo,"red"):[]};
+  buildNL();drawMat();
+  say(mt==="add"?`Start with <b>${q.a}</b>. We will add <b>${q.b}</b>.`:`Start with <b>${q.a}</b>. We will take away <b>${q.b}</b>.`);
+  lg.innerHTML=`<span><i class="rod blue" style="height:22px;width:8px"></i>stick = 10</span><span><i class="one blue"></i>square = 1</span>`+(mt==="add"?`<span><i class="one red"></i>added</span>`:"")+`<span><i class="one gold"></i>swapped</span>`;
+  $("hint").innerHTML=mt==="add"?"How many altogether? Stuck? Press <b>Show me how</b>.":"How many are left? Stuck? Press <b>Show me how</b>.";
+}
+const cls=(b,kind)=>`<div class="${kind} ${b.c}${b.st?" "+b.st:""}"></div>`;
+function drawMat(){
+  const t=M.tens.filter(b=>b.st!=="out").length,o=M.ones.filter(b=>b.st!=="out").length;
+  let h=`<div class="stage"><div class="mat">
+    <div class="col"><div class="colh">TENS<b>${t}</b></div><div class="rods">${M.tens.map(b=>cls(b,"rod")).join("")}</div></div>
+    <div class="col"><div class="colh">ONES<b>${o}</b></div><div class="ones">${M.ones.map(b=>cls(b,"one")).join("")}</div></div></div>`;
+  if(mt==="add"&&(M.trayT.length||M.trayO.length))
+    h+=`<div class="tray"><div class="colh">ADD ${q.b}</div><div class="blocks">${M.trayT.length?`<div class="rods">${M.trayT.map(b=>cls(b,"rod")).join("")}</div>`:""}${M.trayO.length?`<div class="ones">${M.trayO.map(b=>cls(b,"one")).join("")}</div>`:""}</div></div>`;
+  $("visual").innerHTML=h+"</div>";
+  // new/glide-in effects play once
+  [...M.tens,...M.ones].forEach(b=>{if(b.st==="new"||b.st==="fromtray")b.st=""});
+}
+function say(t){$("say").innerHTML=t}
+
+/* number line */
+const NS="http://www.w3.org/2000/svg";
+function el(tag,attrs,txt){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e}
+function buildNL(){
+  const lo=Math.floor(Math.min(q.a,q.ans)/10)*10,hi=Math.max(Math.ceil(Math.max(q.a,q.ans)/10)*10,lo+10);
+  const u=Math.max(9,Math.min(22,640/(hi-lo))),pad=26,W=(hi-lo)*u+pad*2,H=124,Y=92;
+  const svg=el("svg",{width:W,height:H,viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Number line"});
+  const X=v=>pad+(v-lo)*u;
+  svg.appendChild(el("line",{x1:X(lo)-8,y1:Y,x2:X(hi)+8,y2:Y,class:"nl-axis"}));
+  for(let v=lo;v<=hi;v++){const ten=v%10===0;
+    svg.appendChild(el("line",{x1:X(v),y1:Y-(ten?10:5),x2:X(v),y2:Y+(ten?10:5),class:ten?"nl-ten":"nl-tick"}));
+    if(ten)svg.appendChild(el("text",{x:X(v),y:Y+28,class:"nl-lbl"},v));}
+  if(q.a%10)svg.appendChild(el("text",{x:X(q.a),y:Y+28,class:"nl-start"},q.a));
+  const hops=el("g",{});svg.appendChild(hops);
+  const frog=el("g",{class:"frog"});frog.appendChild(el("text",{x:0,y:-8,"font-size":26,"text-anchor":"middle"},"🐸"));
+  const cur=el("text",{x:0,y:-38,class:"nl-cur"},q.a);frog.appendChild(cur);svg.appendChild(frog);
+  const w=$("nlwrap");w.innerHTML="";w.appendChild(svg);
+  nl={X,Y,hops,frog,cur,v:q.a,w};moveFrog(q.a);
+}
+function moveFrog(v){nl.frog.style.transform=`translate(${nl.X(v)}px,${nl.Y}px)`;nl.cur.textContent=v;nl.v=v;
+  const x=nl.X(v)-nl.w.clientWidth/2;nl.w.scrollTo({left:Math.max(0,x),behavior:"smooth"})}
+function hop(d){
+  const a=nl.v,b=a+d,x1=nl.X(a),x2=nl.X(b),h=Math.abs(d)===10?44:20;
+  nl.hops.appendChild(el("path",{d:`M${x1} ${nl.Y} Q${(x1+x2)/2} ${nl.Y-h*2} ${x2} ${nl.Y}`,class:"nl-hop"}));
+  if(Math.abs(d)===10)nl.hops.appendChild(el("text",{x:(x1+x2)/2,y:nl.Y-h-6,class:"nl-hopl"},(d>0?"+":"−")+"10"));
+  moveFrog(b);
+}
+
+/* the "Show me how" story */
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function demo(){
+  if(demoOn||!q||mt==="times")return;
+  const my=++demoToken;demoOn=true;locked=true;typed="";renderSum();syncMathUI();
+  buildVisual();
+  const go=async(ms)=>{await wait(ms);if(my!==demoToken)throw 0};
+  const at=Math.floor(q.a/10),ao=q.a%10,bt=Math.floor(q.b/10),bo=q.b%10;
+  try{
+    await go(1300);
+    if(mt==="add"){
+      if(bt){say(`First add the <b>tens</b>: ${bt} ${bt>1?"sticks":"stick"} of 10.`);await go(1300);
+        for(let i=0;i<bt;i++){M.trayT.pop();M.tens.push(blk("red","fromtray"));drawMat();hop(10);beep(500+i*60,.12);say(`${nl.v-10} + 10 = <b>${nl.v}</b>`);await go(950)}}
+      if(bo){say(`Now add the <b>ones</b>: ${bo} little ${bo>1?"squares":"square"}.`);await go(1300);
+        for(let i=0;i<bo;i++){M.trayO.pop();M.ones.push(blk("red","fromtray"));drawMat();hop(1);beep(650+i*40,.1);say(`${nl.v-1} + 1 = <b>${nl.v}</b>`);await go(700)}}
+      if(M.ones.length>=10){
+        say(`Look! We have <b>${M.ones.length} ones</b>. That's more than 9!`);M.ones.slice(0,10).forEach(b=>b.st="glow");drawMat();await go(1800);
+        say("<b>10 ones</b> make <b>1 ten</b>. Let's swap them!");M.ones.slice(0,10).forEach(b=>b.st="out");drawMat();beep(400,.2);await go(700);
+        M.ones=M.ones.filter(b=>b.st!=="out");M.tens.push(blk("gold","new"));drawMat();beep(880,.2);await go(1500);
+      }
+    }else{
+      if(bt){say(`First take away the <b>tens</b>: ${bt} ${bt>1?"sticks":"stick"} of 10.`);await go(1300);
+        for(let i=0;i<bt;i++){const live=M.tens.filter(b=>b.st!=="out");live[live.length-1].st="out";drawMat();hop(-10);beep(500-i*40,.12);say(`${nl.v+10} − 10 = <b>${nl.v}</b>`);await go(950);M.tens=M.tens.filter(b=>b.st!=="out")}
+        drawMat()}
+      if(bo){
+        if(M.ones.length<bo){
+          say(`We need to take away <b>${bo} ones</b>, but there ${M.ones.length===1?"is":"are"} only <b>${M.ones.length}</b>. Not enough!`);await go(2200);
+          say("Break <b>1 ten</b> into <b>10 ones</b>.");M.tens[M.tens.length-1].st="out";drawMat();beep(300,.2);await go(700);
+          M.tens.pop();for(let i=0;i<10;i++)M.ones.push(blk("gold","new"));drawMat();beep(880,.2);
+          say(`Now there are <b>${M.ones.length} ones</b>. Still ${nl.v} altogether!`);await go(2000);
+        }
+        say(`Now take away the <b>ones</b>: ${bo} little ${bo>1?"squares":"square"}.`);await go(1300);
+        for(let i=0;i<bo;i++){const live=M.ones.filter(b=>b.st!=="out");live[live.length-1].st="out";drawMat();hop(-1);beep(650-i*30,.1);say(`${nl.v+1} − 1 = <b>${nl.v}</b>`);await go(700);M.ones=M.ones.filter(b=>b.st!=="out")}
+        drawMat()}
+    }
+    const t=M.tens.length,o=M.ones.length;
+    say(`<b>${t}</b> ${t===1?"ten":"tens"} and <b>${o}</b> ${o===1?"one":"ones"}. Now type the answer!`);
+  }catch(e){return}
+  demoOn=false;locked=false;syncMathUI();
+}
+$("showBtn").addEventListener("click",()=>{$("showBtn").classList.remove("pulse");demo()});
+
+function syncMathUI(){
+  const blocks=mode==="math"&&mt!=="times";
+  $("say").hidden=!blocks;$("nlwrap").hidden=!blocks;$("showBtn").hidden=!blocks;
+  $("showBtn").disabled=demoOn;$("showBtn").textContent=demoOn?"Watching…":"▶ Show me how";
+}
+function mathKey(k){
+  if(locked||!q)return;
+  pressKey(`#pad .k[data-k="${k}"]`);
+  if(k==="Backspace"){typed=typed.slice(0,-1);renderSum();return}
+  if(!/^[0-9]$/.test(k))return;
+  const len=String(q.ans).length;if(typed.length>=len)return;
+  typed+=k;beep(500+typed.length*60,.1);renderSum();
+  if(typed.length===len){
+    if(+typed===q.ans){$("hint").innerHTML="";celebrate(newQ)}
+    else{tries++;beep(200,.2);shake($("ans"));
+      setTimeout(()=>{typed="";renderSum();
+        if(mt==="times"){buildVisual();$("hint").innerHTML="Not quite. Look at the numbers at the end of each row 👀"}
+        else{$("hint").innerHTML="Not quite. Press <b>Show me how</b> and watch 👀";$("showBtn").classList.add("pulse")}},500)}
+  }
+}
+
+/* ---------- switching ---------- */
+function setMode(m){
+  mode=m;locked=false;
+  document.querySelectorAll(".modes button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false"));
+  const isT=m==="type";
+  $("typeLevels").hidden=!isT;$("kb").hidden=!isT;$("pic").hidden=!isT;$("target").hidden=!isT;
+  $("mathLevels").hidden=isT;$("pad").hidden=isT;$("sum").hidden=isT;$("visual").hidden=isT;$("legend").hidden=isT;
+  $("tables").hidden=isT||mt!=="times";
+  if(isT){demoToken++;demoOn=false;syncMathUI()}
+  $("tip").textContent=isT?"Find the yellow key on the keyboard and press it. Capital letters? Just press the letter — no need for Shift.":"Type the answer with the number keys. Made a mistake? Press ⌫ (Backspace).";
+  isT?pickWord():newQ();
+}
+document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("button");if(b){b.blur();setMode(b.dataset.mode)}});
+$("typeLevels").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  $("typeLevels").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));level=b.dataset.lv;lastIdx=-1;b.blur();pickWord()});
+$("mathLevels").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  $("mathLevels").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));mt=b.dataset.mt;b.blur();
+  $("tables").hidden=mt!=="times";step=0;demoOn=false;newQ()});
+
+window.addEventListener("keydown",e=>{
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  if(mode==="type"){if(e.key.length===1){e.preventDefault();typeKey(e.key)}}
+  else if(/^[0-9]$/.test(e.key)||e.key==="Backspace"){e.preventDefault();mathKey(e.key)}
+});
+setMode("type");
+</script>
+
+</html>
